@@ -4,7 +4,7 @@ python: 3.6
 install:
 - pip install mkdocs
 
-after_success:
+script:
   - git config user.name "Marcus Ottosson";
   - git config user.email "konstruktion@gmail.com";
   - git remote add gh-token "https://${GH_TOKEN}@github.com/mindbender-studio/docs.git";
