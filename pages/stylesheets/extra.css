@@ -1,0 +1,88 @@
+*, :after, :before {
+    box-sizing: inherit;
+}
+
+body,
+input {
+	color: rgba(0, 0, 0, .6);
+}
+
+.md-nav__link[data-md-state=blur] {
+	color: rgba(0, 0, 0, .24);
+}
+
+.md-typeset .codehilite code,
+.md-typeset .codehilite pre,
+.md-typeset .highlight code,
+.md-typeset .highlight pre {
+  overflow-x: auto;
+}
+
+.md-typeset code, .md-typeset pre {
+  color:#333;
+}
+
+.md-typeset code, .md-typeset a code, .md-typeset p code, .md-typeset li code {
+  padding: 3px;
+  border: 1px solid #dedede;
+  border: 1px solid #ddd;
+  background: #fbfbfb;
+  border-radius: 3px;
+  box-shadow: none;
+  white-space: nowrap;
+}
+
+.md-typeset table:not([class]) {
+	font-size: 0.95em;
+}
+
+.md-typeset ol li, .md-typeset ul li {
+  margin-bottom: 0;
+}
+
+.grid {
+  box-sizing: border-box;
+}
+
+.grid:after { 
+   content: "."; 
+   visibility: hidden; 
+   display: block; 
+   height: 0; 
+   clear: both;
+}
+
+.grid > div {
+  margin: 5px;
+  /*padding: 20px;*/
+  height: 250px;
+  /*box-shadow: 0 1px 5px 0 rgba(0,0,0,.07), 0 7px 17px 0 rgba(0,0,0,.1);*/
+  /*background-color: #fff;*/
+  /*background-repeat: no-repeat;*/
+  /*background-position: 17px 30px;*/
+  /*background-size: 36px 36px;*/
+  /*transition: box-shadow .2s ease-in-out;*/
+  width: calc(50% - 10px);
+  float: left;
+}
+/*
+.grid > div:hover {
+    box-shadow: 0 1px 5px 0 rgba(0,0,0,.12), 0 7px 25px 0 rgba(0,0,0,.15);
+}*/
+
+img {
+  max-width:100%;
+}
+
+img.ornament {
+  float: right;
+  margin-left: 60px;
+  margin-bottom: 60px;
+  box-shadow: 0px 0px 24px #cccccc;
+}
+
+@media only screen and (min-width: 60em) {
+  [data-md-color-primary=indigo] .md-nav--secondary {
+      border-left: .4rem solid #f3f3f3;
+  }
+}

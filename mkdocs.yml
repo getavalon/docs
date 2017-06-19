@@ -1,27 +1,7 @@
-# Copyright (c) 2016-2017 Martin Donath <martin.donath@squidfunk.com>
-
-# Permission is hereby granted, free of charge, to any person obtaining a copy
-# of this software and associated documentation files (the "Software"), to
-# deal in the Software without restriction, including without limitation the
-# rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
-# sell copies of the Software, and to permit persons to whom the Software is
-# furnished to do so, subject to the following conditions:
-
-# The above copyright notice and this permission notice shall be included in
-# all copies or substantial portions of the Software.
-
-# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-# FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
-# AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
-# FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
-# IN THE SOFTWARE.
-
 # Project information
-site_name: Material for MkDocs
-site_description: A Material Design theme for MkDocs
-site_author: Martin Donath
+site_name: Avalon
+site_description: A global production pipeline for film and games
+site_author: Marcus Ottosson
 site_url: http://mindbender-studio.github.io
 
 # Repository
@@ -31,17 +11,46 @@ repo_url: https://github.com/mindbender-studio/core
 # Copyright
 copyright: "Copyright &copy; 2017 Marcus Ottosson"
 
+# Page tree
+pages:
+  - Home:
+    - Avalon: index.md
+  - Tutorials:
+    - Quickstart: tutorials/quickstart.md
+    - Getting Started: tutorials/getting-started.md
+  - How-to:
+    - Projects: howto/projects.md
+    - Assets: howto/assets.md
+    - Software: howto/software.md
+    - Libraries: howto/libraries.md
+  - Discussions:
+    - Forum: discussions/forum.md
+  - Reference:
+    - API: reference/api.md
+    - Batteries: reference/batteries.md
+    - Contributing: reference/contributing.md
+  - Polly:
+    - Home: polly/index.md
+    - Assets: polly/assets.md
+  - Colorbleed:
+    - Home: colorbleed/index.md
+
 # Theme directory
 theme_dir: theme
 docs_dir: pages
+extra_css:
+  - "stylesheets/extra.css"
 
 # Options
 extra:
   feature:
-    tabs: false
+    tabs: true
   palette:
     primary: indigo
-    accent: indigo
+    accent: orange
+  font:
+    text: "Roboto"
+    code: "Source Code Pro"
   social:
     - type: globe
       link: http://mindbender.com
@@ -54,8 +63,9 @@ extra:
 
 # Extensions
 markdown_extensions:
+  - meta
   - markdown.extensions.admonition
-  - markdown.extensions.codehilite(guess_lang=false)
+  - markdown.extensions.codehilite(guess_lang=false, linenums=true)
   - markdown.extensions.def_list
   - markdown.extensions.footnotes
   - markdown.extensions.meta
@@ -73,23 +83,6 @@ markdown_extensions:
   - pymdownx.superfences
   - pymdownx.tasklist(custom_checkbox=true)
   - pymdownx.tilde
-
-# Page tree
-pages:
-  - Material: index.md
-  - Getting started: getting-started.md
-  - Extensions:
-    - Admonition: extensions/admonition.md
-    - CodeHilite: extensions/codehilite.md
-    - Footnotes: extensions/footnotes.md
-    - Metadata: extensions/metadata.md
-    - Permalinks: extensions/permalinks.md
-    - PyMdown: extensions/pymdown.md
-  - Specimen: specimen.md
-  - Customization: customization.md
-  - Release notes: release-notes.md
-  - Contributing: contributing.md
-  - License: license.md
 
 # Google Analytics
 google_analytics:
