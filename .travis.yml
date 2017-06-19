@@ -5,9 +5,15 @@ install:
 - pip install mkdocs
 
 script:
-  - git config user.name "Marcus Ottosson";
-  - git config user.email "konstruktion@gmail.com";
-  - git remote add gh-token "https://${GH_TOKEN}@github.com/mindbender-studio/docs.git";
-  - git fetch gh-token && git fetch gh-token gh-pages:gh-pages;
-  - pip install -IU -r requirements.txt;
-  - mkdocs gh-deploy -v --clean --remote-name gh-token;
+  - pip install -r requirements.txt;
+  - mkdocs build
+
+before_deploy:
+  - cd site
+
+deploy:
+  provider: pages
+  skip_cleanup: true
+  github_token: $GITHUB_TOKEN
+  on:
+    branch: master
