@@ -1,31 +1,35 @@
-#
+![dropbox5](https://user-images.githubusercontent.com/2152766/27342274-9e6203b8-55d7-11e7-8834-8e27bb75008a.png)
 
-![dropbox5](https://user-images.githubusercontent.com/2152766/27327148-8528634c-55a5-11e7-93b2-841942283b8a.png)
+!!! note "Style"
+    
+    This section is shows how to solve a specific problem in a series of steps.
+
+# How to
 
 This section is goal-oriented and shows how to solve a specific problem in a series of steps.
 
-## First steps
+## Create your first project
 
-### Quickstart
+To create a new project, create a new directory and fetch default values like this.
 
-The quickest way to publishing your first asset.
-
-#### Usage
-
-Mindbender is initialised by calling `install()` with an interface for your host.
-
-```python
-from mindbender import api, maya
-api.install(maya)
+```bash
+$ mkdir myProject
+$ cd myProject
+$ python -m mindbender.inventory --init
+$ # Edit .inventory.toml and .config.toml
+$ python -m mindbender.inventory --save
 ```
 
-**Supported hosts**
+The `mindbender.inventory` module will take into account the name of the parent directory as the project name and produce two files, the "inventory" and "config".
 
-- [`maya`]()
-- [`nuke`]()
-- [`houdini`]()
+- See [Project Inventory API](reference/#project-inventory-api) for details on how to manage your `.inventory.toml` file.
+- See [Project Configuration API](reference/#project-configuration-api) for details on how to manage your `.config.toml` file.
 
-From here, you model, rig and animate as per the [contract](#contract) below.
+<br>
+
+### Subtitle here
+
+Whop!
 
 <br>
 <br>

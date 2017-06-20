@@ -14,10 +14,10 @@ copyright: "Copyright &copy; 2017 Marcus Ottosson"
 # Page tree
 pages:
   - Home: index.md
-  - Avalon:
+  - "1.0":
     - Home: 1.0/index.md
-  - Avalon:
-    - Home: 2.0/index.md
+  - "2.0":
+    - Avalon: 2.0/index.md
     - Tutorials: 2.0/tutorials.md
     - Topic Guides: 2.0/guides.md
     - How To: 2.0/howto.md
@@ -32,10 +32,13 @@ pages:
 theme_dir: theme
 docs_dir: pages
 extra_css:
-  - "stylesheets/extra.css"
+  - "css/extra.css"
+extra_javascript:
+  - "js/extra.js"
 
 # Options
 extra:
+  logo: assets/images/logo.png
   feature:
     tabs: true
   palette:

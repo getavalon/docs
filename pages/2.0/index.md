@@ -1,21 +1,85 @@
-#
+template: home.html
 
 ![dropbox1](https://user-images.githubusercontent.com/2152766/27319903-a5308dd2-558b-11e7-980c-190f08fca902.png)
 
-!!! note "Avalon Documentation"
+#
 
-	Everything you need to know about Avalon.
+<table id="home-table">
+	<tr>
+		<td>
+			<a class="box" href="tutorials/">
+				<!-- <h3>Learn</h3> -->
+				<img src="https://user-images.githubusercontent.com/2152766/27341801-31bb5594-55d6-11e7-9000-bf8072afc4cc.png">
+				<br>
+				<br>
+				<p>Guides and tutorials.<br>Start here if you're new to Avalon.</p>
+			</a>
+		</td>
+		<td>
+			<a class="box" href="reference/">
+				<!-- <h3>Reference</h3> -->
+				<img src="https://user-images.githubusercontent.com/2152766/27341799-31b9d6a6-55d6-11e7-8784-574e9c483b21.png">
+				<br>
+				<br>
+				<p>Technical reference for APIs<br>and other aspects of Avalon.</p>
+			</a>
+		</td>
+		<td>
+			<a class="box" href="reference/#contributing">
+				<!-- <h3>Develop</h3> -->
+				<img src="https://user-images.githubusercontent.com/2152766/27341800-31ba0d2e-55d6-11e7-9eb1-664e13a189ea.png">
+				<br>
+				<br>
+				<p>Contribute to the MIT-licensed project on GitHub.</p>
+			</a>
+		</td>
+	</tr>
+</table>
 
-### How the documentation is organized
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
-Avalon has a lot of documentation. A high-level overview of how it's organized will help you know where to look for certain things:
+## Quickstart
+
+The quickest way to publishing your first asset.
+
+### Usage
+
+Mindbender is initialised by calling `install()` with an interface for your host.
+
+```python
+from mindbender import api, maya
+api.install(maya)
+```
+
+**Supported hosts**
+
+- [`maya`]()
+- [`nuke`]()
+- [`houdini`]()
+
+From here, you model, rig and animate as per the [contract](#contract) below.
+
+<br>
+<br>
+
+## How the documentation is organized
+
+A high-level overview of how it's organized will help you know where to look for certain things:
 
 - [Tutorials](tutorials/) take you by the hand through a series of steps to create a Web application. Start here if you're new to Avalon or Web application development. Also look at the "[First steps](https://docs.djangoproject.com/en/1.11/#index-first-steps)" below.
 - [Topic guides](guides/) discuss key topics and concepts at a fairly high level and provide useful background information and explanation.
 - [Reference guides](reference/) contain technical reference for APIs and other aspects of Avalon's machinery. They describe how it works and how to use it but assume that you have a basic understanding of key concepts.
 - [How-to guides](https://docs.djangoproject.com/en/1.11/howto/) are recipes. They guide you through the steps involved in addressing key problems and use-cases. They are more advanced than tutorials and assume some knowledge of how Avalon works.
 
-### First steps
+## First steps
 
 Are you new to Avalon or to programming? This is the place to start!
 
@@ -23,7 +87,7 @@ Are you new to Avalon or to programming? This is the place to start!
 - **Tutorial:** [Part 1: Requests and responses](https://docs.djangoproject.com/en/1.11/intro/tutorial01/) | [Part 2: Models and the admin site](https://docs.djangoproject.com/en/1.11/intro/tutorial02/) | [Part 3: Views and templates](https://docs.djangoproject.com/en/1.11/intro/tutorial03/) | [Part 4: Forms and generic views](https://docs.djangoproject.com/en/1.11/intro/tutorial04/) | [Part 5: Testing](https://docs.djangoproject.com/en/1.11/intro/tutorial05/) | [Part 6: Static files](https://docs.djangoproject.com/en/1.11/intro/tutorial06/) | [Part 7: Customizing the admin site](https://docs.djangoproject.com/en/1.11/intro/tutorial07/)
 - **Advanced Tutorials:** [How to write reusable apps](https://docs.djangoproject.com/en/1.11/intro/reusable-apps/) | [Writing your first patch for Avalon](https://docs.djangoproject.com/en/1.11/intro/contributing/)
 
-### The model layer
+## The model layer
 
 Avalon provides an abstraction layer (the "models") for structuring and manipulating the data of your Web application. Learn more about it below:
 

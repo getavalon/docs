@@ -1,15 +1,10 @@
-#
-
 ![dropbox3](https://user-images.githubusercontent.com/2152766/27328354-cd712dd8-55a9-11e7-89b8-bb8b01b9c66d.png)
 
-!!! note "Information-oriented"
+!!! note "Style"
     
     This section contain technical reference for APIs and other aspects of Avalon's machinery. They describe how it works and how to use it but assume that you have a basic understanding of key concepts.
 
-Welcome to the Avalon pipeline reference. This is where all important concepts are documented
-Mindbender provides a *stateful* API.
-
-State is set and modified by calling any of the exposed registration functions, prefixed `register_*`.
+# Reference
 
 ## Schema
 
@@ -88,7 +83,7 @@ Public members of `mindbender.api`
 <br>
 <br>
 
-### Host API
+## Host API
 
 A host must implement the following members.
 
@@ -120,7 +115,7 @@ Internally, Pyblish instances and containers are distinguished from native conte
 <br>
 <br>
 
-### Project Inventory API
+## Project Inventory API
 
 The inventory contains all ASSETs of a project, including metadata.
 
@@ -168,7 +163,7 @@ The above is an example of an "inventory". A complete snapshot of all available 
 <br>
 <br>
 
-### Project Configuration API
+## Project Configuration API
 
 The project configuration contains the applications and tasks available within a given project, along with the template used to create directories.
 
@@ -222,7 +217,7 @@ The directory layout have the following members available.
 <br>
 <br>
 
-### Project Executable API
+## Project Executable API
 
 Every executable must have an associated Application Definition file which looks like this.
 

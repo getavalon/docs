@@ -1,13 +1,12 @@
-#
+![dropbox6](https://user-images.githubusercontent.com/2152766/27343679-8df7d5d0-55db-11e7-9293-6689c4a74d6a.png)
 
-![dropbox2](https://user-images.githubusercontent.com/2152766/27328581-816a6138-55aa-11e7-9e99-db3a3324c4b7.png)
-
-!!! note "Learning-oriented"
+!!! note "Style"
 	
 	Take you by the hand through a series of steps to create film. Start here if you're new to Avalon.
 
-<br>
-<br>
+# Tutorials
+
+## Part I
 
 ### Audience
 
@@ -59,6 +58,11 @@ To tie it all together, below are some examples of what this project facilitates
 -   <https://vimeo.com/79720999>
 
 <br>
+<br>
+<br>
+<br>
+
+## Part II
 
 ### Demo
 
@@ -67,12 +71,22 @@ Video of production, merge walkthrough videos. Involve creating and publishing a
 Snippets of api as part of introduction.
 
 <br>
+<br>
+<br>
+<br>
+
+## Part III
 
 ### Try it
 
 Git clone, open an example project, load load few things, save a few things and run things through validation. This is where the simplicity of installation is key.
 
 <br>
+<br>
+<br>
+<br>
+
+## Part IV
 
 ### Read it
 
@@ -83,6 +97,11 @@ Is the api intuitive? Can you see room for flexibility, room to grow? What is th
 Read one or more tutorials to gain insight into how pedagogical and understanding I think one should be with our target audience.
 
 <br>
+<br>
+<br>
+<br>
+
+## Part V
 
 ### Contribute
 
@@ -102,22 +121,3 @@ Links to:
 -   Discussion
 
 Below you'll find learn-by-example style tutorials for getting started quickly with your pipeline.
-
-<br>
-
-#### Creating Your First Project
-
-To create a new project, create a new directory and fetch default values like this.
-
-```bash
-$ mkdir myProject
-$ cd myProject
-$ python -m mindbender.inventory --load
-```
-
-The `mindbender.inventory` module will take into account the name of the parent directory as the project name and produce two files, the "inventory" and "config".
-
-- See [Project Inventory API](#project-inventory-api) for details on how to manage your `.inventory.toml` file.
-- See [Project Configuration API](#project-configuration-api) for details on how to manage your `.config.toml` file.
-
-<br>
