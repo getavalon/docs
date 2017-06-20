@@ -82,7 +82,7 @@ def on_schema(name):
         data["required"] = str(key in schema.get("required", {}))
         definition += row.format(**data)
 
-    return "\n".join([example, definition])
+    return "\n".join([example])
 
 
 def parse(fname):

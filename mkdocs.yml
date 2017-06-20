@@ -15,12 +15,13 @@ copyright: "Copyright &copy; 2017 Marcus Ottosson"
 pages:
   - Home: index.md
   - "1.0":
-    - Home: 1.0/index.md
+    - " ": 1.0/index.md
   - "2.0":
-    - Avalon: 2.0/index.md
+    - " ": 2.0/index.md
+    - Overview: 2.0/overview.md
     - Tutorials: 2.0/tutorials.md
-    - Topic Guides: 2.0/guides.md
     - How To: 2.0/howto.md
+    - Topic Guides: 2.0/guides.md
     - Reference: 2.0/reference.md
   - Polly:
     - Home: polly/index.md

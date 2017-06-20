@@ -1,8 +1,8 @@
 ![dropbox3](https://user-images.githubusercontent.com/2152766/27328354-cd712dd8-55a9-11e7-89b8-bb8b01b9c66d.png)
 
-!!! note "Style"
-    
-    This section contain technical reference for APIs and other aspects of Avalon's machinery. They describe how it works and how to use it but assume that you have a basic understanding of key concepts.
+<br>
+<br>
+<br>
 
 # Reference
 
@@ -19,7 +19,7 @@ Available schemas are organised hierarchically, with the former containing the l
 
 <br>
 
-### `asset.json`
+### asset.json
 
 A part of a PROJECT, such as a Character or Shot.
 
@@ -37,19 +37,9 @@ A part of a PROJECT, such as a Character or Shot.
 }
 ```
 
-**Definition**
-
-| Key | Value | Required? | Description
-|:----|:------|:----------|:------------
-| `data` | `dict` | `True` | Document metadata
-| `silo` | `str` | `True` | Group or container of asset
-| `type` | `str` | `True` | The type of document
-| `name` | `str` | `True` | Name of asset
-| `schema` | `str` | `True` | Schema identifier for payload
-
 <br>
 
-### `subset.json`
+### subset.json
 
 A part of an ASSET, such as a model or a rig.
 
@@ -67,18 +57,9 @@ A part of an ASSET, such as a model or a rig.
 }
 ```
 
-**Definition**
-
-| Key | Value | Required? | Description
-|:----|:------|:----------|:------------
-| `data` | `dict` | `True` | Document metadata
-| `type` | `str` | `True` | The type of document
-| `name` | `str` | `True` | Name of directory
-| `schema` | `str` | `True` | The schema associated with this document
-
 <br>
 
-### `version.json`
+### version.json
 
 An immutable iteration of a SUBSET.
 
@@ -105,19 +86,9 @@ Versions are immutable, in that they never change once made. This is in stark co
 }
 ```
 
-**Definition**
-
-| Key | Value | Required? | Description
-|:----|:------|:----------|:------------
-| `locations` | `list` | `False` | Where on the planet this version can be found.
-| `data` | `dict` | `True` | Document metadata
-| `type` | `str` | `True` | The type of document
-| `name` | `int` | `True` | Number of version
-| `schema` | `str` | `True` | The schema associated with this document
-
 <br>
 
-### `representation.json`
+### representation.json
 
 One of many representations of a VERSION.
 
@@ -151,20 +122,9 @@ As a practical example, a Look is stored as both an MA scene file and a JSON. Th
 }
 ```
 
-**Definition**
-
-| Key | Value | Required? | Description
-|:----|:------|:----------|:------------
-| `name` | `str` | `True` | Name of representation
-| `type` | `str` | `True` | The type of document
-| `dependencies` | `list` | `False` | Other representation that this representation depends on
-| `context` | `dict` | `False` | Summary of the context to which this representation belong.
-| `data` | `dict` | `True` | Document metadata
-| `schema` | `str` | `True` | Schema identifier for payload
-
 <br>
 
-### `container.json`
+### container.json
 
 An imported VERSION, as yielded from `api.registered_host().ls()`.
 
@@ -183,19 +143,6 @@ An imported VERSION, as yielded from `api.registered_host().ls()`.
 }
 ```
 
-**Definition**
-
-| Key | Value | Required? | Description
-|:----|:------|:----------|:------------
-| `subset` | `str` | `True` | Name of source subset
-| `name` | `str` | `True` | Full name of application object
-| `objectName` | `str` | `True` | Name of internal object, such as the objectSet in Maya.
-| `author` | `str` | `False` | Name of the author of the published version
-| `version` | `int` | `True` | Version number
-| `asset` | `str` | `True` | Name of source asset
-| `path` | `str` | `True` | Absolute path
-| `schema` | `str` | `True` | Schema identifier for payload
-
 Mindbender hosts a series of [graphical user interfaces](#batteries) that aid the user in conforming to the specified [contracts](#contract).
 
 | Name              | Purpose                          | Description
@@ -206,6 +153,8 @@ Mindbender hosts a series of [graphical user interfaces](#batteries) that aid th
 
 <br>
 <br>
+
+## Library API
 
 Public members of `mindbender.api`
 
