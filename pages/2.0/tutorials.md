@@ -1,38 +1,43 @@
-Here is where I'll mock up the documentation for an introduction to collaborators for Avalon.
+#
+
+![dropbox2](https://user-images.githubusercontent.com/2152766/27328581-816a6138-55aa-11e7-9e99-db3a3324c4b7.png)
+
+!!! note "Learning-oriented"
+	
+	Take you by the hand through a series of steps to create film. Start here if you're new to Avalon.
 
 <br>
+<br>
 
-## Audience
+### Audience
 
 This project is developed for small (5) to mid-sized (15) groups of people producing film with elements of 3d animation.
 
-It does:
+It **does**:
 
--   Replace an existing pipeline, it does not augment one nor slot into one, nor does it guide users new to production through how film is made.
+- Replace an existing pipeline, it does not augment one nor slot into one, nor does it guide users new to production through how film is made.
+- Require a developer on-site, it cannot be managed by artists alone.
 
--   Require a developer on-site, it cannot be managed by artists alone.
+It **does not**:
 
-It does not:
-
--   Suit groups beyond 50-100 members, although we do try and keep scalability in mind.
-
--   Suit analog-only productions, although we do include the means to manage analog footage alongside digital content.
+- Suit groups beyond 50-100 members, although we do try and keep scalability in mind.
+- Suit analog-only productions, although we do include the means to manage analog footage alongside digital content.
 
 <br>
 
-### Scope
+#### Scope
 
 ![](https://lh5.googleusercontent.com/fukx0IqU7tTLGb0Fyif_iBf5qiLkVUaX-DSGPxPOv_h50BuC_1g-fv__MZjWrdoCLrVPZ8kytg2TQSKrV5i5WZkBKxUVH4JkD98r1sN5rCkexpeDakhggBGkLGJrymQd0blT1Yzx)
 
 <br>
 
-### Usecase
+#### Usecase
 
 -   Produce a film, 2 minutes long, from storyboards and/or animatic in its entirely digitally.
 
 <br>
 
-### Reason
+#### Reason
 
 The development of commercials, film and tv series all face similar challenges, yet very little is available publicly; neither as commercial or open source offerings.
 
@@ -46,7 +51,7 @@ Production tracking offerings such as ftrack, Shotgun and Tactic offer software 
 
 <br>
 
-### Examples
+#### Examples
 
 To tie it all together, below are some examples of what this project facilitates.
 
@@ -55,7 +60,7 @@ To tie it all together, below are some examples of what this project facilitates
 
 <br>
 
-## Demo
+### Demo
 
 Video of production, merge walkthrough videos. Involve creating and publishing and loading.
 
@@ -63,13 +68,13 @@ Snippets of api as part of introduction.
 
 <br>
 
-## Try it
+### Try it
 
 Git clone, open an example project, load load few things, save a few things and run things through validation. This is where the simplicity of installation is key.
 
 <br>
 
-## Read it
+### Read it
 
 Gain an understanding of the style in which the project is developed (e.g. pep8) and the personas present in each kind of text - reference material, tutorials, api and journal entries.
 
@@ -79,7 +84,7 @@ Read one or more tutorials to gain insight into how pedagogical and understandin
 
 <br>
 
-## Contribute
+### Contribute
 
 Walk through how collaboration happens, where to store and retrieve various kinds of information. Such as real-time discussion on [Gitter](https://gitter.im/mindbender-pipeline), knowledge Base type information on Discourse and long term and detailed specifications and priority lists on GitHub.  
 
@@ -100,7 +105,7 @@ Below you'll find learn-by-example style tutorials for getting started quickly w
 
 <br>
 
-### Creating Your First Project
+#### Creating Your First Project
 
 To create a new project, create a new directory and fetch default values like this.
 

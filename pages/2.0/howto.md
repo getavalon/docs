@@ -1,4 +1,38 @@
-# Contributing
+#
+
+![dropbox5](https://user-images.githubusercontent.com/2152766/27327148-8528634c-55a5-11e7-93b2-841942283b8a.png)
+
+This section is goal-oriented and shows how to solve a specific problem in a series of steps.
+
+## First steps
+
+### Quickstart
+
+The quickest way to publishing your first asset.
+
+#### Usage
+
+Mindbender is initialised by calling `install()` with an interface for your host.
+
+```python
+from mindbender import api, maya
+api.install(maya)
+```
+
+**Supported hosts**
+
+- [`maya`]()
+- [`nuke`]()
+- [`houdini`]()
+
+From here, you model, rig and animate as per the [contract](#contract) below.
+
+<br>
+<br>
+<br>
+<br>
+
+## Contributing
 
 !!! note "Status"
 
@@ -14,8 +48,11 @@ Contributing to any Mindbender project assumes a working knowledge of [Git](http
 Enjoy and hope to see you soon!
 
 <br>
+<br>
+<br>
+<br>
 
-# How to read this guide
+## How to read this guide
 
 Here are a few of the conventions used throughout this guide.
 
@@ -24,7 +61,12 @@ Here are a few of the conventions used throughout this guide.
 - (1), (2) are used to division important aspects in a sentence.
 - `code` is used to highlight words that occur in code.
 
-# Collaboration
+<br>
+<br>
+<br>
+<br>
+
+## Collaboration
 
 This pipeline is being developed in collaboration with other production houses and service providers.
 

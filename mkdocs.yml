@@ -2,7 +2,7 @@
 site_name: Avalon
 site_description: A global production pipeline for film and games
 site_author: Marcus Ottosson
-site_url: http://mindbender-studio.github.io
+site_url: http://mindbender-studio.github.io/docs
 
 # Repository
 repo_name: mindbender/core
@@ -13,22 +13,15 @@ copyright: "Copyright &copy; 2017 Marcus Ottosson"
 
 # Page tree
 pages:
-  - Home:
-    - Avalon: index.md
-  - Tutorials:
-    - Quickstart: tutorials/quickstart.md
-    - Getting Started: tutorials/getting-started.md
-  - How-to:
-    - Projects: howto/projects.md
-    - Assets: howto/assets.md
-    - Software: howto/software.md
-    - Libraries: howto/libraries.md
-  - Discussions:
-    - Forum: discussions/forum.md
-  - Reference:
-    - API: reference/api.md
-    - Batteries: reference/batteries.md
-    - Contributing: reference/contributing.md
+  - Home: index.md
+  - Avalon:
+    - Home: 1.0/index.md
+  - Avalon:
+    - Home: 2.0/index.md
+    - Tutorials: 2.0/tutorials.md
+    - Topic Guides: 2.0/guides.md
+    - How To: 2.0/howto.md
+    - Reference: 2.0/reference.md
   - Polly:
     - Home: polly/index.md
     - Assets: polly/assets.md
@@ -46,10 +39,10 @@ extra:
   feature:
     tabs: true
   palette:
-    primary: indigo
-    accent: orange
+    primary: light blue
+    accent: light blue
   font:
-    text: "Roboto"
+    text: "Helvetica"
     code: "Source Code Pro"
   social:
     - type: globe
@@ -57,9 +50,9 @@ extra:
     - type: github-alt
       link: https://github.com/mindbender-studio
     - type: twitter
-      link: https://twitter.com/mindbender
+      link: https://twitter.com/marcusottosson
     - type: linkedin
-      link: https://linkedin.com/in/mindbender
+      link: https://linkedin.com/in/marcusottosson
 
 # Extensions
 markdown_extensions:

@@ -2,11 +2,10 @@ language: python
 python: 3.6
 
 install:
-  - pip install mkdocs
+  - pip install -r requirements.txt;
   - git clone https://github.com/mindbender-studio/core.git
 
 script:
-  - pip install -r requirements.txt;
   - PYTHONPATH=$(pwd)/core python build.py
   - mkdocs build
 
