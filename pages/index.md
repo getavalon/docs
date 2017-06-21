@@ -1,8 +1,8 @@
-template: home.html
+template: redirect.html
 
 ![dropbox1](https://user-images.githubusercontent.com/2152766/27319903-a5308dd2-558b-11e7-980c-190f08fca902.png)
 
-#
+# Avalon
 
 Pick your poison.
 

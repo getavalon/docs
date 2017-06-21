@@ -1,9 +1,7 @@
 window.addEventListener("load", function () {
   var select = document.getElementById("version-selector");
   
-  if (select == undefined) {
-    document.location.href = "2.0";
-  } else {
+  if (select != undefined) {
     console.log(document.location.href)
     select.selectedIndex = document.location.href.endsWith("1.0/") ? 1 : 2;
 
@@ -18,6 +16,5 @@ window.addEventListener("load", function () {
         // !@#$ing IE support, of course
         select.attachEvent("onchange", onSelectChanged, false);
     }
-    
   }
 }, false );

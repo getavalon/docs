@@ -29,7 +29,7 @@
       {% if page and page.meta.title %}
         <title>{{ page.meta.title | first }}</title>
       {% elif page and page.title and not page.is_homepage %}
-        <title>{{ page.title }} - {{ config.site_name }}</title>
+        <title>{{ config.site_name }}</title>
       {% else %}
         <title>{{ config.site_name }}</title>
       {% endif %}
@@ -104,7 +104,7 @@
               </div>
             {% endif %}
             {% if page.toc %}
-              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+              <div style="display: none" class="md-sidebar md-sidebar--secondary" data-md-component="toc">
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     {% include "partials/toc.html" %}
@@ -146,7 +146,7 @@
         </div>
       </main>
       {% block footer %}
-      <div style="display: none">
+      <div>
         {% include "partials/footer.html" %}
       </div>
       {% endblock %}

@@ -45,7 +45,7 @@ h1 {
 
 
 .md-typeset table:not([class]) tr td {
-  padding-left: 3px;
+  padding-left: 16px;
   border: none;
 }
 
@@ -96,7 +96,7 @@ h1 {
 }
 
 #home-table {
-  height: 400px;
+  height: 350px;
 }
 
 #home-table tr {
@@ -144,6 +144,39 @@ h1 {
   margin: 0;
   color: #999;
   letter-spacing: 0.03rem;
+}
+
+#home-links {
+  text-align: center;
+}
+
+#home-links > div {
+  display: inline-block;
+}
+
+#home-links > div > p {
+  color: #efefef;
+  display: inline-block;
+  width: 15px;
+  font-size: 20px;
+}
+
+#home-features tr {
+  background: none;
+}
+
+#home-features img {
+  padding-left: 10px;
+}
+
+#home-features td:first-child {
+  width: 170px;
+}
+
+#home-features h3 {
+  font-size: 1.8rem;
+  margin-top: 0;
+  margin-bottom: 5px;
 }
 
 .md-typeset .codehilitetable .code {
