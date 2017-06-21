@@ -19,9 +19,67 @@ Available schemas are organised hierarchically, with the former containing the l
 
 <br>
 
-### asset.json
+### Project
 
-A part of a PROJECT, such as a Character or Shot.
+A project is a top-level object that cannot be contained elsewhere, but contains everything relevant to a given project.
+
+**Example**
+
+```json
+{
+    "config": {
+        "apps": [
+            {
+                "label": "Autodesk Maya 2016", 
+                "name": "maya2016"
+            }, 
+            {
+                "label": "The Foundry Nuke 10.0", 
+                "name": "nuke10"
+            }
+        ], 
+        "schema": "mindbender-core:config-1.0", 
+        "tasks": [
+            {
+                "name": "model"
+            }, 
+            {
+                "name": "render"
+            }, 
+            {
+                "name": "animate"
+            }, 
+            {
+                "name": "rig"
+            }, 
+            {
+                "name": "lookdev"
+            }, 
+            {
+                "name": "layout"
+            }
+        ], 
+        "template": {
+            "publish": "{root}/{project}/{silo}/{asset}/publish/{subset}/v{version:0>3}/{subset}.{representation}", 
+            "work": "{root}/{project}/{silo}/{asset}/work/{task}/{app}"
+        }
+    }, 
+    "data": {
+        "fps": 24, 
+        "height": 1080, 
+        "width": 1920
+    }, 
+    "name": "hulk", 
+    "schema": "mindbender-core:project-2.0", 
+    "type": "project"
+}
+```
+
+<br>
+
+### Asset
+
+A part of a project, such as a Character or Shot.
 
 **Example**
 
@@ -39,9 +97,9 @@ A part of a PROJECT, such as a Character or Shot.
 
 <br>
 
-### subset.json
+### Subset
 
-A part of an ASSET, such as a model or a rig.
+A part of an [Asset](#asset), such as a model or a rig.
 
 **Example**
 
@@ -59,9 +117,9 @@ A part of an ASSET, such as a model or a rig.
 
 <br>
 
-### version.json
+### Version
 
-An immutable iteration of a SUBSET.
+An immutable iteration of a [Subset](#subset).
 
 Versions are immutable, in that they never change once made. This is in stark contrast to mutable versions which is when one version may be "updated" such that the same file now contains new information.
 
@@ -88,9 +146,9 @@ Versions are immutable, in that they never change once made. This is in stark co
 
 <br>
 
-### representation.json
+### Representation
 
-One of many representations of a VERSION.
+One of many representations of a [Version](#version).
 
 Think of a representation as one way of storing the same set of data on disk. For example, an image may be stored as both PNG and JPEG. Different files, same data. It could also be stored as a description. *"A picture of my computer."* Much less information is ultimately stored, but it is nonetheless the exact same original data in a different (albeit lossy) representation. The image could also be represented by a feeling (warm, mystical) or a spoken word (muah!).
 
@@ -124,7 +182,7 @@ As a practical example, a Look is stored as both an MA scene file and a JSON. Th
 
 <br>
 
-### container.json
+### Container
 
 An imported VERSION, as yielded from `api.registered_host().ls()`.
 

@@ -56,9 +56,12 @@ template: home.html
 </div>
 
 <br>
+ 
+---
+
 <br>
 <br>
-<br>
+
 
 ## Meet Avalon
 
@@ -94,6 +97,15 @@ Avalon is a Python framework for the post-production Pipeline that encourages sa
 	</tr>
 </table>
 
+<a href="introduction/" class="cta outline">Learn more about Avalon</a>
+
+<br>
+<br>
+
+---
+
+<br>
+
 ## Support
 
 !!! danger "Note to self"
@@ -111,6 +123,13 @@ Avalon is a Python framework for the post-production Pipeline that encourages sa
 - Photoshop
 - After Effects
 - Flame
+
+<br>
+<br>
+
+---
+
+<br>
 
 ## Development
 

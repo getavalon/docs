@@ -179,6 +179,35 @@ h1 {
   margin-bottom: 5px;
 }
 
+.cta, a.cta {
+  font-size: 1.7rem;
+  font-family: "Roboto", Corbel, Avenir, "Lucida Grande", "Lucida Sans", sans-serif;
+  margin: 20px auto;
+  max-width: 400px;
+  color: #859D94;
+  background: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  border: 1px solid #CFE3DC;
+  border-radius: 5px;
+  color: #fff;
+  display: block;
+  -webkit-font-smoothing: subpixel-antialiased;
+  -moz-osx-font-smoothing: auto;
+  margin: 30px auto 0;
+  padding: 1em 1.5em;
+  text-align: center;
+  text-decoration: none;
+}
+
+.md-typeset hr {
+    border-bottom: .1rem solid rgba(0, 0, 0, 0.05);
+}
+
+.md-typeset td strong {
+    font-weight: 700;
+}
+
 .md-typeset .codehilitetable .code {
     background: none;
     border: 1px solid #f3f3f3;

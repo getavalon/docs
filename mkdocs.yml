@@ -18,6 +18,7 @@ pages:
     - " ": 1.0/index.md
   - "2.0":
     - " ": 2.0/index.md
+    - Introduction: 2.0/introduction.md
     - Overview: 2.0/overview.md
     - Tutorials: 2.0/tutorials.md
     - How To: 2.0/howto.md
