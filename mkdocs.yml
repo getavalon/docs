@@ -82,5 +82,5 @@ markdown_extensions:
 
 # Google Analytics
 google_analytics:
-  - !!python/object/apply:os.getenv ["GOOGLE_ANALYTICS_KEY"]
+  - "UA-101505233-1"
   - auto
