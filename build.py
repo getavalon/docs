@@ -82,7 +82,13 @@ def on_schema(name):
         data["required"] = str(key in schema.get("required", {}))
         definition += row.format(**data)
 
-    return "\n".join([example])
+    link = """\
+**Source**
+
+- [{name}](https://github.com/getavalon/core/blob/master/avalon/schema/{name})
+""".format(name=name)
+
+    return "\n".join([example, link])
 
 
 def parse(fname):
