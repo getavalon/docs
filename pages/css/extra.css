@@ -50,11 +50,6 @@ h1 {
   border: none;
 }
 
-/* Align left*/
-.md-typeset tr th:last-child, .md-typeset tr td:last-child {
-    width: 100%;
-}
-
 .md-typeset th, .md-typeset td {
   text-align:left;
   padding: 5px 10px;
