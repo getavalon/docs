@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Source+Code+Pro');
+
 *, :after, :before {
     box-sizing: inherit;
 }
@@ -38,7 +40,7 @@ h1 {
 
 .md-typeset table:not([class]) th {
     padding: 0.5rem 1.6rem;
-    background-color: rgba(0, 0, 0, .25);
+    background-color: rgba(0, 0, 0, .75);
     color: #fff;
     font-weight: 700;
 }
@@ -47,6 +49,11 @@ h1 {
 .md-typeset table:not([class]) tr td {
   padding-left: 16px;
   border: none;
+}
+
+/* Align left*/
+.md-typeset tr th:last-child, .md-typeset tr td:last-child {
+    width: 100%;
 }
 
 .md-typeset th, .md-typeset td {
@@ -78,8 +85,14 @@ h1 {
   overflow-x: auto;
 }
 
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing:grayscale
+}
+
 .md-typeset code, .md-typeset pre {
-  color:#333;
+  color: #333;
+  font-family: "Source Code Pro", monospace;
 }
 
 .md-typeset code, .md-typeset a code, .md-typeset p code, .md-typeset li code {
