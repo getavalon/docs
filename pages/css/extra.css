@@ -92,6 +92,7 @@ body {
 .md-typeset code, .md-typeset pre {
   color: #333;
   font-family: "Source Code Pro", monospace;
+  font-size: 1.2rem;
 }
 
 .md-typeset code, .md-typeset a code, .md-typeset p code, .md-typeset li code {
