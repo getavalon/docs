@@ -10,6 +10,9 @@ This section covers high-level aspects of Avalon in an information-oriented fash
 
 - [Library Reference](https://getavalon.github.io/core)
 
+<br>
+<br>
+
 ## Schema
 
 ![image](https://cloud.githubusercontent.com/assets/2152766/22086121/8c037080-ddd7-11e6-9149-439203c32c6b.png)
@@ -79,6 +82,10 @@ A project is a top-level object that cannot be contained elsewhere, but contains
 }
 ```
 
+**Source**
+
+- [project-2.0.json](https://github.com/getavalon/core/blob/master/avalon/schema/project-2.0.json)
+
 <br>
 
 ### Asset
@@ -99,6 +106,10 @@ A part of a project, such as a Character or Shot.
 }
 ```
 
+**Source**
+
+- [asset-2.0.json](https://github.com/getavalon/core/blob/master/avalon/schema/asset-2.0.json)
+
 <br>
 
 ### Subset
@@ -118,6 +129,10 @@ A part of an [Asset](#asset), such as a model or a rig.
     "type": "subset"
 }
 ```
+
+**Source**
+
+- [subset-2.0.json](https://github.com/getavalon/core/blob/master/avalon/schema/subset-2.0.json)
 
 <br>
 
@@ -147,6 +162,10 @@ Versions are immutable, in that they never change once made. This is in stark co
     "type": "version"
 }
 ```
+
+**Source**
+
+- [version-2.0.json](https://github.com/getavalon/core/blob/master/avalon/schema/version-2.0.json)
 
 <br>
 
@@ -184,6 +203,10 @@ As a practical example, a Look is stored as both an MA scene file and a JSON. Th
 }
 ```
 
+**Source**
+
+- [representation-2.0.json](https://github.com/getavalon/core/blob/master/avalon/schema/representation-2.0.json)
+
 <br>
 
 ### Container
@@ -205,13 +228,11 @@ An imported VERSION, as yielded from `api.registered_host().ls()`.
 }
 ```
 
-Avalon hosts a series of [graphical user interfaces](#batteries) that aid the user in conforming to the specified [contracts](#contract).
+**Source**
 
-| Name              | Purpose                          | Description
-|:------------------|:---------------------------------|:--------------
-| **creator**            | control what goes out           | Manage how data is outputted from an application.
-| **loader**            | control what goes in             | Keep tabs on where data comes from so as to enable tracking and builds.
-| **manager**           | stay up to date                  | Notification and visualisation of loaded data.
+- [container-1.0.json](https://github.com/getavalon/core/blob/master/avalon/schema/container-1.0.json)
+
+Avalon hosts a series of [graphical user interfaces](#batteries) that aid the user in conforming to the specified [contracts](#contract).
 
 <br>
 <br>
@@ -440,15 +461,23 @@ PYTHONPATH = [
 <br>
 <br>
 
+## Tools
+
+| Name              | Purpose                          | Description
+|:------------------|:---------------------------------|:--------------
+| **creator**            | control what goes out           | Manage how data is outputted from an application.
+| **loader**            | control what goes in             | Keep tabs on where data comes from so as to enable tracking and builds.
+| **manager**           | stay up to date                  | Notification and visualisation of loaded data.
+
 <img class="ornament" src="https://cloud.githubusercontent.com/assets/2152766/25314626/a8a3b72e-283f-11e7-90fd-3fa76e75276e.png">
 
-## Creator
+### Creator
 
 Associate content with a family.
 
 The family is what determins how the content is handled throughout your pipeline and tells Pyblish what it should look like when valid.
 
-### API
+#### API
 
 The creator respects families registered with Avalon.
 
@@ -501,7 +530,7 @@ api.register_family(
 
 <img class="ornament" src="https://cloud.githubusercontent.com/assets/2152766/25314676/6405898e-2840-11e7-9a09-3a193d6eaf1f.png">
 
-## Loader
+### Loader
 
 Visualise results from `api.ls()`.
 
@@ -512,7 +541,7 @@ for asset in api.ls():
     print(asset["name"])
 ```
 
-### API
+#### API
 
 The results from `api.ls()` depends on the currently **registered root**.
 
@@ -535,7 +564,7 @@ A host is automatically registered on `api.install()`.
 
 <img class="ornament" src="https://cloud.githubusercontent.com/assets/2152766/25314689/8b80cc58-2840-11e7-9bee-a97a40fa830d.png">
 
-## Manager
+### Manager
 
 Visualise loaded assets.
 
@@ -548,7 +577,7 @@ for container in maya.ls():
 # The same is true for any host; houdini, nuke etc.
 ```
 
-### API
+#### API
 
 The results from `ls()` depends on the currently registered host, such as Maya.
 

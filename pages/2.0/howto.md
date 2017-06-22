@@ -27,8 +27,8 @@ In order to use Avalon, here's what you need.
 - Windows, Linux or OSX
 - [Python 2.7](https://www.python.org/downloads/) or [Python 3.6 (recommended)](https://www.python.org/downloads/)
 - [PyQt 5.6](https://www.riverbankcomputing.com/software/pyqt/download5) or above
-- [Git 2](https://git-scm.com/download) or above
-- [Docker 17](https://www.docker.com/) or above
+- [Git 2.0](https://git-scm.com/download) or above
+- [Docker 17.0](https://www.docker.com/) or above
 
 **Test installations**
 
