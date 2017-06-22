@@ -46,9 +46,7 @@ extra:
   palette:
     primary: light blue
     accent: light blue
-  font:
-    text: "Helvetica"
-    code: "Source Code Pro"
+  font: false
   social:
     - type: globe
       link: http://avalon.com
