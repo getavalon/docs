@@ -11,6 +11,7 @@ script:
 
 before_deploy:
   - cd site
+  - touch .nojekyll
 
 deploy:
   provider: pages
