@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css?family=Source+Code+Pro');
-
 *, :after, :before {
     box-sizing: inherit;
 }
@@ -7,6 +5,7 @@
 body,
 input {
   color: #727272;
+  font-family: "Roboto", helvetica;
 }
 
 h1 {
