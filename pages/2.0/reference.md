@@ -6,6 +6,10 @@
 
 # Reference
 
+This section covers high-level aspects of Avalon in an information-oriented fashion. For library reference, see the [Library Reference]() link below.
+
+- [Library Reference](https://getavalon.github.io/core)
+
 ## Schema
 
 ![image](https://cloud.githubusercontent.com/assets/2152766/22086121/8c037080-ddd7-11e6-9149-439203c32c6b.png)
@@ -38,7 +42,7 @@ A project is a top-level object that cannot be contained elsewhere, but contains
                 "name": "nuke10"
             }
         ], 
-        "schema": "mindbender-core:config-1.0", 
+        "schema": "avalon-core:config-1.0", 
         "tasks": [
             {
                 "name": "model"
@@ -70,7 +74,7 @@ A project is a top-level object that cannot be contained elsewhere, but contains
         "width": 1920
     }, 
     "name": "hulk", 
-    "schema": "mindbender-core:project-2.0", 
+    "schema": "avalon-core:project-2.0", 
     "type": "project"
 }
 ```
@@ -89,7 +93,7 @@ A part of a project, such as a Character or Shot.
         "key": "value"
     }, 
     "name": "Bruce", 
-    "schema": "mindbender-core:asset-2.0", 
+    "schema": "avalon-core:asset-2.0", 
     "silo": "assets", 
     "type": "asset"
 }
@@ -110,7 +114,7 @@ A part of an [Asset](#asset), such as a model or a rig.
         "startFrame": 1000
     }, 
     "name": "shot01", 
-    "schema": "mindbender-core:subset-2.0", 
+    "schema": "avalon-core:subset-2.0", 
     "type": "subset"
 }
 ```
@@ -130,16 +134,16 @@ Versions are immutable, in that they never change once made. This is in stark co
     "data": {
         "author": "marcus", 
         "families": [
-            "mindbender.model"
+            "avalon.model"
         ], 
         "source": "{root}/f02_prod/assets/BubbleWitch/work/modeling/marcus/maya/scenes/model_v001.ma", 
         "time": "20170510T090203Z"
     }, 
     "locations": [
-        "data.mindbender.com"
+        "data.avalon.com"
     ], 
     "name": 12, 
-    "schema": "mindbender-core:version-2.0", 
+    "schema": "avalon-core:version-2.0", 
     "type": "version"
 }
 ```
@@ -175,7 +179,7 @@ As a practical example, a Look is stored as both an MA scene file and a JSON. Th
         "592d547a5f8c1b388093c145"
     ], 
     "name": "abc", 
-    "schema": "mindbender-core:representation-2.0", 
+    "schema": "avalon-core:representation-2.0", 
     "type": "representation"
 }
 ```
@@ -195,13 +199,13 @@ An imported VERSION, as yielded from `api.registered_host().ls()`.
     "name": "modelDefault", 
     "objectName": "modelDefault_CON", 
     "path": "|someParent|someNamespace_:modelDefault_CON", 
-    "schema": "mindbender-core:container-2.0", 
+    "schema": "avalon-core:container-2.0", 
     "subset": "modelDefault", 
     "version": 12
 }
 ```
 
-Mindbender hosts a series of [graphical user interfaces](#batteries) that aid the user in conforming to the specified [contracts](#contract).
+Avalon hosts a series of [graphical user interfaces](#batteries) that aid the user in conforming to the specified [contracts](#contract).
 
 | Name              | Purpose                          | Description
 |:------------------|:---------------------------------|:--------------
@@ -214,7 +218,7 @@ Mindbender hosts a series of [graphical user interfaces](#batteries) that aid th
 
 ## Library API
 
-Public members of `mindbender.api`
+Public members of `avalon.api`
 
 | Member | Returns | Description
 |:-------|:--------|:--------
@@ -271,8 +275,8 @@ Internally, Pyblish instances and containers are distinguished from native conte
 
 | Name                         | Description              | Example
 |:-----------------------------|:-------------------------|:----------
-| `pyblish.mindbender.container`  | Unit of incoming data    | `...:model_GRP`, `...:rig_GRP` 
-| `pyblish.mindbender.instance`   | Unit of outgoing data    | `Strange_model_default`
+| `pyblish.avalon.container`  | Unit of incoming data    | `...:model_GRP`, `...:rig_GRP` 
+| `pyblish.avalon.instance`   | Unit of outgoing data    | `Strange_model_default`
 
 <br>
 <br>
@@ -287,7 +291,7 @@ The inventory contains all ASSETs of a project, including metadata.
 
 ```ini
 # Mandatory, do not touch
-schema = "mindbender-core:inventory-1.0"
+schema = "avalon-core:inventory-1.0"
 
 # Project metadata
 label = "The Hulk"
@@ -333,7 +337,7 @@ The project configuration contains the applications and tasks available within a
 
 ```ini
 # Mandatory, do not touch
-schema = "mindbender-core:config-1.0"
+schema = "avalon-core:config-1.0"
 
 # Available tasks to choose from.
 [[tasks]]
@@ -387,7 +391,7 @@ Every executable must have an associated Application Definition file which looks
 
 ```ini
 # Required header, do not touch.
-schema = "mindbender-core:application-1.0"
+schema = "avalon-core:application-1.0"
 
 # Name of the created directory, available in the 
 # `template` of the Configuration API
@@ -406,7 +410,7 @@ default_dirs = [
 label = "Autodesk Maya 2016x64"
 
 # Arguments passed to the executable on launch
-arguments = [ "-proj", "{MINDBENDER_WORKDIR}",]
+arguments = [ "-proj", "{AVALON_WORKDIR}",]
 
 # Name of the executable on the local computer.
 # This name must be available via the users `PATH`.
@@ -417,7 +421,7 @@ description = ""
 
 # Files copied into the application directory on launch
 [copy]
-"{MINDBENDER_CORE}/res/workspace.mel" = "workspace.mel"
+"{AVALON_CORE}/res/workspace.mel" = "workspace.mel"
 
 # The environment variables overrides any previously set
 # variables from the parent process.
@@ -427,15 +431,16 @@ MAYA_DISABLE_CIP = "Yes"  # Shorten time to boot
 MAYA_DISABLE_CER = "Yes"
 PYTHONPATH = [
     "{PYBLISH_MAYA}/pyblish_maya/pythonpath",
-    "{MINDBENDER_CORE}/mindbender/maya/pythonpath",
+    "{AVALON_CORE}/avalon/maya/pythonpath",
     "{PYTHONPATH}"
 ]
 ```
 
 <br>
 <br>
-
 <br>
+
+<img class="ornament" src="https://cloud.githubusercontent.com/assets/2152766/25314626/a8a3b72e-283f-11e7-90fd-3fa76e75276e.png">
 
 ## Creator
 
@@ -445,10 +450,10 @@ The family is what determins how the content is handled throughout your pipeline
 
 ### API
 
-The creator respects families registered with Mindbender.
+The creator respects families registered with Avalon.
 
 ```python
-from mindbender import api
+from avalon import api
 
 api.register_family(
     name="my.family",
@@ -460,7 +465,7 @@ For each family, a **common set of data** is automatically associated with the r
 
 ```python
 {
-    "id": "pyblish.mindbender.instance",
+    "id": "pyblish.avalon.instance",
     "family": {chosen family}
     "name": {chosen name}
 }
@@ -469,7 +474,7 @@ For each family, a **common set of data** is automatically associated with the r
 **Additional common** data can be added.
 
 ```python
-from mindbender import api
+from avalon import api
 
 api.register_data(
     key="myKey",
@@ -481,7 +486,7 @@ api.register_data(
 Data may be **associated** with a family.
 
 ```python
-from mindbender import api
+from avalon import api
 
 api.register_family(
     name="my.family",
@@ -501,7 +506,7 @@ api.register_family(
 Visualise results from `api.ls()`.
 
 ```python
-from mindbender import api
+from avalon import api
 
 for asset in api.ls():
     print(asset["name"])
@@ -512,14 +517,14 @@ for asset in api.ls():
 The results from `api.ls()` depends on the currently **registered root**.
 
 ```python
-from mindbender import api
+from avalon import api
 api.register_root("/projects/gravity")
 ```
 
 The chosen `ASSET` is passed to the `load()` function of the currently registered host.
 
 ```python
-from mindbender import api, maya
+from avalon import api, maya
 api.register_host(maya)
 ```
 
@@ -535,7 +540,7 @@ A host is automatically registered on `api.install()`.
 Visualise loaded assets.
 
 ```python
-from mindbender import maya
+from avalon import maya
 
 for container in maya.ls():
     print(container["name"])
@@ -548,6 +553,6 @@ for container in maya.ls():
 The results from `ls()` depends on the currently registered host, such as Maya.
 
 ```python
-from mindbender import nuke
+from avalon import nuke
 api.register_host(nuke)
 ```

@@ -3,20 +3,20 @@ The available asset types in Polly.
 
 ### Contract
 
-Mindbender defines these families.
+Avalon defines these families.
 
 | Family                 | Definition                                      | Link
 |:-----------------------|:------------------------------------------------|:------------
-| `mindbender.model`     | Geometry with deformable topology               | [Spec](#mindbendermodel)
-| `mindbender.rig`       | An articulated `mindbender.model` for animators | [Spec](#mindbenderrig)
-| `mindbender.animation` | Pointcached `mindbender.rig` for rendering      | [Spec](#mindbenderanimation)
-| `mindbender.lookdev`   | Shaded `mindbender.model` for rendering         | [Spec](#mindbenderlookdev)
+| `avalon.model`     | Geometry with deformable topology               | [Spec](#avalonmodel)
+| `avalon.rig`       | An articulated `avalon.model` for animators | [Spec](#avalonrig)
+| `avalon.animation` | Pointcached `avalon.rig` for rendering      | [Spec](#avalonanimation)
+| `avalon.lookdev`   | Shaded `avalon.model` for rendering         | [Spec](#avalonlookdev)
 
 <br>
 
 <img class="ornament" src="https://cloud.githubusercontent.com/assets/2152766/25314853/4c84d5e6-2843-11e7-9b66-4c4506c89320.png"/>
 
-#### `mindbender.model`
+#### `avalon.model`
 
 A generic representation of geometry.
 
@@ -53,9 +53,9 @@ A generic representation of geometry.
 
 <img class="ornament" src="https://cloud.githubusercontent.com/assets/2152766/25314863/87719ab8-2843-11e7-8509-1328f0847437.png"/>
 
-#### `mindbender.rig`
+#### `avalon.rig`
 
-The `mindbender.rig` contains the necessary implementation and interface for animators to animate. 
+The `avalon.rig` contains the necessary implementation and interface for animators to animate. 
 
 ![aud][] **Workfow**
 
@@ -96,7 +96,7 @@ Publishing.
 
 <img class="ornament" src="https://cloud.githubusercontent.com/assets/2152766/25314862/77be3eb4-2843-11e7-9a5f-9a1509751aa6.png"/>
 
-#### `mindbender.animation`
+#### `avalon.animation`
 
 Point positions and normals represented as one Alembic file.
 
@@ -131,7 +131,7 @@ The animator workflow is simplified by the fact that an INSTANCE is automaticall
 
 <img class="ornament" src="https://cloud.githubusercontent.com/assets/2152766/25314862/77be3eb4-2843-11e7-9a5f-9a1509751aa6.png"/>
 
-#### `mindbender.lookdev`
+#### `avalon.lookdev`
 
 ![aud][] **Workflow**
 

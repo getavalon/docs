@@ -1,3 +1,3 @@
 # Polly
 
-The Mindbender pipeline configuration.
+The Avalon pipeline configuration.

@@ -5,7 +5,11 @@
 	<p style="margin: 0">The safe post-production pipeline</p>
 </div>
 
-Avalon is a Python framework for the post-production pipeline and targets small (5) to mid-sized (15) groups of people producing film with elements of 3d animation.
+!!! note "Target audience"
+
+	This section is for readers unfamiliar with Avalon and assumes no prior knowledge.
+
+Avalon is a Python framework for the post-production pipeline and targets small (5) to mid-sized (25) groups of people producing film with elements of 3d animation.
 
 **Avalon...**
 
@@ -33,9 +37,9 @@ Avalon is a Python framework for the post-production pipeline and targets small 
 
 The best pipelines are tailored to available resources and tasks at hand. This project is no different and the requirements and resources are set forth by its collaborators.
 
-- [Mindbender](http://mindbender.com)
+- [Avalon](http://avalon.com)
 - [Colorbleed](http://colorbleed.nl)
-- [Metapipe](http://metapipe.com)
+- and [Metapipe](http://metapipe.com)
 
 <!-- ![scope](https://user-images.githubusercontent.com/2152766/27344523-74f7c2f4-55de-11e7-8c62-c52a74de2e53.png) -->
 
@@ -149,7 +153,7 @@ Read one or more tutorials to gain insight into how pedagogical and understandin
 
 ## Contribute
 
-Walk through how collaboration happens, where to store and retrieve various kinds of information. Such as real-time discussion on [Gitter](https://gitter.im/mindbender-pipeline), knowledge Base type information on Discourse and long term and detailed specifications and priority lists on GitHub.  
+Walk through how collaboration happens, where to store and retrieve various kinds of information. Such as real-time discussion on [Gitter](https://gitter.im/avalon-pipeline), knowledge Base type information on Discourse and long term and detailed specifications and priority lists on GitHub.  
 
 Walk through making pull requests and how to read and write issues and how to deal with production on fires. (i.e emergencies).
 

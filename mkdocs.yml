@@ -2,11 +2,11 @@
 site_name: Avalon
 site_description: A global production pipeline for film and games
 site_author: Marcus Ottosson
-# site_url: http://mindbender-studio.github.io/docs
+# site_url: http://getavalon.github.io/docs
 
 # Repository
-repo_name: mindbender/core
-repo_url: https://github.com/mindbender-studio/core
+repo_name: avalon/core
+repo_url: https://github.com/getavalon/core
 
 # Copyright
 copyright: "Copyright &copy; 2017 Marcus Ottosson"
@@ -51,9 +51,9 @@ extra:
     code: "Source Code Pro"
   social:
     - type: globe
-      link: http://mindbender.com
+      link: http://avalon.com
     - type: github-alt
-      link: https://github.com/mindbender-studio
+      link: https://github.com/getavalon
     - type: twitter
       link: https://twitter.com/marcusottosson
     - type: linkedin

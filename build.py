@@ -15,7 +15,7 @@ def on_template(template):
 
 
 def on_api_members():
-    from mindbender import api
+    from avalon import api
 
     table = """\
 | Member | Returns | Description
@@ -41,7 +41,7 @@ def on_api_members():
 
 
 def on_schema(name):
-    from mindbender import schema
+    from avalon import schema
     schema = schema._cache[name]
 
     example = """\

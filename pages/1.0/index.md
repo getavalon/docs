@@ -1,17 +1,17 @@
 template: 1.0.html
 
-# Mindbender
+# Avalon
 
 - **Keywords:** Film, games, content creation, pipeline
 
 - **Objective:**
-    1. Provide a unified framework within which artists at Mindbender may work efficiently.
+    1. Provide a unified framework within which artists at Avalon may work efficiently.
     1. Enable extending of said framework for future improvements and unique requirements.
     1. Inspire further expansion upon a series of basic ideas.
 
 - **Requirements:** Core functionality must be editable and extensible by the technical director.
 
-- **Technology:** Mindbender is built upon [Pyblish](http://pyblish.com), [Python](https://www.python.org) and [bindings](https://github.com/mottosso/Qt.py) for [Qt](https://qt.io), and depends upon a Windows, Linux or MacOS operating system with [Autodesk Maya](http://www.autodesk.com/maya), [The Foundry Nuke](https://www.thefoundry.co.uk/products/nuke/), [SideFX Houdini](https://www.sidefx.com/) and other DCC content creation applications.
+- **Technology:** Avalon is built upon [Pyblish](http://pyblish.com), [Python](https://www.python.org) and [bindings](https://github.com/mottosso/Qt.py) for [Qt](https://qt.io), and depends upon a Windows, Linux or MacOS operating system with [Autodesk Maya](http://www.autodesk.com/maya), [The Foundry Nuke](https://www.thefoundry.co.uk/products/nuke/), [SideFX Houdini](https://www.sidefx.com/) and other DCC content creation applications.
 
 <br>
 <br>
@@ -33,7 +33,7 @@ To make the most out of this document, some knowledge and experience is assumed.
 
 ### Introduction
 
-Welcome to mindbender-pipeline, the production pipeline at [Mindbender Animation Studio](http://mindbender.se).
+Welcome to avalon-core, the production pipeline at [Mindbender Animation Studio](http://mindbender.se).
 
 <br>
 
@@ -59,13 +59,13 @@ Welcome to mindbender-pipeline, the production pipeline at [Mindbender Animation
         - [`subset.json`](#subsetjson)
         - [`representation.json`](#representationjson)
         - [`container.json`](#containerjson)
-    - [Mindbender API](#mindbender-api)
+    - [Avalon API](#avalon-api)
     - [Host API](#host-api)
 - [Contract](#contract)
-    - [`mindbender.model`](#mindbendermodel)
-    - [`mindbender.rig`](#mindbenderrig)
-    - [`mindbender.animation`](#mindbenderanimation)
-    - [`mindbender.lookdev`](#mindbenderlookdev)
+    - [`avalon.model`](#avalonmodel)
+    - [`avalon.rig`](#avalonrig)
+    - [`avalon.animation`](#avalonanimation)
+    - [`avalon.lookdev`](#avalonlookdev)
 - [Homework](#homework)
 - [Contributing](#contributing)
 - Help
@@ -79,8 +79,8 @@ This project currently boasts the following features.
 
 |          | Feature                                        | Description
 |:---------|:-----------------------------------------------|:--------------------
-| ![][shd] | **Open Source**                                    | Anyone can take part in testing, using and developing the pipeline on [GitHub](https://github.com/mindbender-studio).
-| ![][pro] | **Version Control**                                | Entire pipeline is [reviewed](https://github.com/mindbender-studio/core/pulls?q=is%3Apr+is%3Aclosed) and [tested](https://travis-ci.org/mindbender-studio/core) prior to any change being made.
+| ![][shd] | **Open Source**                                    | Anyone can take part in testing, using and developing the pipeline on [GitHub](https://github.com/getavalon).
+| ![][pro] | **Version Control**                                | Entire pipeline is [reviewed](https://github.com/getavalon/core/pulls?q=is%3Apr+is%3Aclosed) and [tested](https://travis-ci.org/getavalon/core) prior to any change being made.
 | ![][ast] | **Issue Tracker**                                  | Feature requests, bugs and questions are reported, assigned and solved openly.
 | ![][ver] | **Single-command install and update via Git**      | Zero dependencies make for easy install and updates.
 | ![][rep] | **Environment management**                         | The developer manages the environment without distrupting the end user
@@ -103,11 +103,11 @@ This project currently boasts the following features.
 
 ### Install
 
-Mindbender takes the form of a "git" repository. Therefore, you will need to install [Git](https://git-scm.com/). Once installed, open up a terminal (Start > "cmd" > Enter) and type this in.
+Avalon takes the form of a "git" repository. Therefore, you will need to install [Git](https://git-scm.com/). Once installed, open up a terminal (Start > "cmd" > Enter) and type this in.
 
 ```bash
-$ git clone https://github.com/mindbender-studio/setup mindbender-setup --recursive
-$ cd mindbender-setup
+$ git clone https://github.com/getavalon/setup avalon-setup --recursive
+$ cd avalon-setup
 $ git checkout 1.0 -b 1.0
 $ git submodule update
 $ start .
@@ -121,7 +121,7 @@ Windows Explorer appears! Double-click `mb.bat` and off you go!
 
 **Congratulations!**
 
-You are now fully equipped to handle Mindbender tasks!
+You are now fully equipped to handle Avalon tasks!
 
 **Next Step**
 
@@ -134,12 +134,12 @@ You are now fully equipped to handle Mindbender tasks!
 
 ### Update
 
-To update mindbender-setup, run the `update.bat` file supplied within the `mindbender-setup` directory.
+To update avalon-setup, run the `update.bat` file supplied within the `avalon-setup` directory.
 
 Alternatively, you may type this.
 
 ```bash
-$ cd mindbender-setup
+$ cd avalon-setup
 $ git pull
 $ git submodule update --recursive
 ```
@@ -151,14 +151,14 @@ It is safe to run these as many times as you'd like.
 
 ### Customisation
 
-The above is all that is required to get started with the Mindbender Pipeline. If you are at home and are just looking to try things out, feel free to play around. Create a few assets, publish them and familiarise yourself with the [workflow](#contract).
+The above is all that is required to get started with the Avalon Pipeline. If you are at home and are just looking to try things out, feel free to play around. Create a few assets, publish them and familiarise yourself with the [workflow](#contract).
 
-If you are at a studio, you will likely want to use your own projects with the Mindbender Launcher.
+If you are at a studio, you will likely want to use your own projects with the Avalon Launcher.
 
 The next step is telling `mb.bat` about your local projects. From your terminal, type this.
 
 ```bash
-$ cd mindbender-setup
+$ cd avalon-setup
 $ notepad mb.bat
 ```
 
@@ -171,10 +171,10 @@ At the bottom of this file, replace `%REPLACE_ME%` with the absolute path to whe
 
 ### Usage
 
-Mindbender is initialised by calling `install()` with an interface for your host.
+Avalon is initialised by calling `install()` with an interface for your host.
 
 ```python
->>> from mindbender import api, maya
+>>> from avalon import api, maya
 >>> api.install(maya)
 ```
 
@@ -203,13 +203,13 @@ Here are a few of the conventions used throughout this guide.
 
 ### Description
 
-Mindbender is a content creation studio focusing on photo-realistic, yet exaggerated cartoons. They work across continents in Sweden, Brazil and Spain and therefore require an underlying pipeline that facilitate these activities.
+Avalon is a content creation studio focusing on photo-realistic, yet exaggerated cartoons. They work across continents in Sweden, Brazil and Spain and therefore require an underlying pipeline that facilitate these activities.
 
-Pyblish Mindbender works exclusively with computer generated imagery - which means no focus is put on video, sound or the integration of 3d and live action footage. It has been designed for use both locally and remotely, to bridge the gap between artists working together but in different locations.
+Pyblish Avalon works exclusively with computer generated imagery - which means no focus is put on video, sound or the integration of 3d and live action footage. It has been designed for use both locally and remotely, to bridge the gap between artists working together but in different locations.
 
 **Overview**
 
-This pipeline covers the entire pipeline at Mindbender, including asset and shot creation. A PROJECT is partitioned into SHOTs where each shot consists of one or more ASSETs.
+This pipeline covers the entire pipeline at Avalon, including asset and shot creation. A PROJECT is partitioned into SHOTs where each shot consists of one or more ASSETs.
 
 This pipeline includes tools and Pyblish plug-ins for 4 common types of ASSETs in a typical production pipeline.
 
@@ -225,7 +225,7 @@ These implement **(1)** a contract for each FAMILY of ASSETs and **(2)** their i
 
 ### Batteries
 
-Mindbender hosts a series of [graphical user interfaces](#batteries) that aid the user in conforming to the specified [contracts](#contracts).
+Avalon hosts a series of [graphical user interfaces](#batteries) that aid the user in conforming to the specified [contracts](#contracts).
 
 | Name              | Purpose                          | Description
 |:------------------|:---------------------------------|:--------------
@@ -245,10 +245,10 @@ The family is what determins how the content is handled throughout your pipeline
 
 **API**
 
-The creator respects families registered with Mindbender.
+The creator respects families registered with Avalon.
 
 ```python
-from mindbender import api
+from avalon import api
 
 api.register_family(
     name="my.family",
@@ -260,7 +260,7 @@ For each family, a **common set of data** is automatically associated with the r
 
 ```python
 {
-    "id": "pyblish.mindbender.instance",
+    "id": "pyblish.avalon.instance",
     "family": {chosen family}
     "name": {chosen name}
 }
@@ -269,7 +269,7 @@ For each family, a **common set of data** is automatically associated with the r
 **Additional common** data can be added.
 
 ```python
-from mindbender import api
+from avalon import api
 
 api.register_data(
     key="myKey",
@@ -281,7 +281,7 @@ api.register_data(
 Data may be **associated** with a family.
 
 ```python
-from mindbender import api
+from avalon import api
 
 api.register_family(
     name="my.family",
@@ -301,7 +301,7 @@ api.register_family(
 Visualise results from `api.ls()`.
 
 ```python
-from mindbender import api
+from avalon import api
 
 for asset in api.ls():
     print(asset["name"])
@@ -312,14 +312,14 @@ for asset in api.ls():
 The results from `api.ls()` depends on the currently **registered root**.
 
 ```python
-from mindbender import api
+from avalon import api
 api.register_root("/projects/gravity")
 ```
 
 The chosen `ASSET` is passed to the `load()` function of the currently registered host.
 
 ```python
-from mindbender import api, maya
+from avalon import api, maya
 api.register_host(maya)
 ```
 
@@ -335,7 +335,7 @@ A host is automatically registered on `api.install()`.
 Visualise loaded assets.
 
 ```python
-from mindbender import maya
+from avalon import maya
 
 for container in maya.ls():
     print(container["name"])
@@ -348,7 +348,7 @@ for container in maya.ls():
 The results from `ls()` depends on the currently registered host, such as Maya.
 
 ```python
-from mindbender import nuke
+from avalon import nuke
 api.register_host(nuke)
 ```
 
@@ -364,21 +364,21 @@ api.register_host(nuke)
 
 ## API
 
-Mindbender exposes a series of interrelated APIs to the end-user.
+Avalon exposes a series of interrelated APIs to the end-user.
 
 | Name                              | Purpose
 |:----------------------------------|:--------------
 | [**Terminal API**](#terminal-api)     | Defines how the **artist** interacts with **tasks**
 | [**Filesystem API**](#filesystem-api) | Defines how the **developer** interact with **data** on disk
-| [**Mindbender API**](#mindbender-api) | Defines how the **developer** interacts with **Mindbender**
-| [**Host API**](#host-api)             | Defines how the **host** interacts with **Mindbender**
+| [**Avalon API**](#avalon-api) | Defines how the **developer** interacts with **Avalon**
+| [**Host API**](#host-api)             | Defines how the **host** interacts with **Avalon**
 
 <br>
 <br>
 
 ### Terminology
 
-Mindbender reserves the following words for private and public use. Public members are exposed to the user, private ones are internal to the implementation.
+Avalon reserves the following words for private and public use. Public members are exposed to the user, private ones are internal to the implementation.
 
 |          | Term                | Public | Description         | Example
 |:---------|:--------------------|:-------|:--------------------|:------------------------
@@ -402,7 +402,7 @@ Mindbender reserves the following words for private and public use. Public membe
 
 ### Terminal API
 
-`mb.bat` (pronounced "embee-bat") is the Mindbender Launcher. It is how artists launch applications, such as Maya and Nuke. It establishes important environment variables used when producing and publishing data, along with exposing artists to tools relevant a given project.
+`mb.bat` (pronounced "embee-bat") is the Avalon Launcher. It is how artists launch applications, such as Maya and Nuke. It establishes important environment variables used when producing and publishing data, along with exposing artists to tools relevant a given project.
 
 ![untitled](https://cloud.githubusercontent.com/assets/2152766/22065809/2960e216-dd8a-11e6-9bf4-435a8c25f98c.gif)
 
@@ -449,7 +449,7 @@ The given TASK is automatically created, unless it already exists.
 
 Data is organised into **files** and **folders**.
 
-Some files and folders have special meaning in Mindbender.
+Some files and folders have special meaning in Avalon.
 
 ![image](https://cloud.githubusercontent.com/assets/2152766/18836965/03e2f018-83fa-11e6-81d5-2dcfa19c43ab.png)
 
@@ -478,7 +478,7 @@ During the course of the creation of any ASSET, data moves between 2 of 3 states
 
 **Private and Public separation**
 
-A naive approach to content creation might be to refer to ASSETs straight from another artists workspace. At Mindbender, data is separated between work-in-progress (private) and data exposed to others (public).
+A naive approach to content creation might be to refer to ASSETs straight from another artists workspace. At Avalon, data is separated between work-in-progress (private) and data exposed to others (public).
 
 Private data resides in `work`, public data resides in `publish`.
 
@@ -577,7 +577,7 @@ Communication with the filesystem is made through `ls()`.
 **Example**
 
 ```python
-from mindbender import api
+from avalon import api
 
 for asset in api.ls():
     for subset in asset["subsets"]:
@@ -663,7 +663,7 @@ An imported VERSION, as yielded from `api.registered_host().ls()`.
 
 | Key               | Value  | Description
 |:------------------|:-------|:-------------
-| `schema`          | `str`  | Contains `"mindbender-core:container-1.0"`
+| `schema`          | `str`  | Contains `"avalon-core:container-1.0"`
 | `name`            | `str`  | Pipeline name of this container
 | `objectName`      | `str`  | Internal name used in an application
 | `asset`           | `str`  | Source ASSET of this container
@@ -676,19 +676,19 @@ An imported VERSION, as yielded from `api.registered_host().ls()`.
 <br>
 <br>
 
-### Mindbender API
+### Avalon API
 
-Mindbender provides a *stateful* API.
+Avalon provides a *stateful* API.
 
 State is set and modified by calling any of the exposed registration functions, prefixed `register_*`.
 
 <br>
 
-Public members of `mindbender.api`
+Public members of `avalon.api`
 
 | Member                           | Returns  | Description
 |:---------------------------------|:---------|:--------
-| `install(host)`                  | `str`    | Install Mindbender into the current interpreter session
+| `install(host)`                  | `str`    | Install Avalon into the current interpreter session
 | `uninstall()`                    | `str`    | Revert installation
 | `ls()`                           | `generator` | List available assets, relative `root`
 | `registered_root()`              | `str`       | Absolute path to current working directory
@@ -699,7 +699,7 @@ Public members of `mindbender.api`
 | `parse_version(version)`         | `str`       | Given an arbitrarily formatted string, return version number
 | `register_root(root)`            |             | Register currently active root
 | `register_host(host)`            |             | Register currently active host
-| `register_plugins()`             |             | Register plug-ins bundled with Pyblish Mindbender
+| `register_plugins()`             |             | Register plug-ins bundled with Pyblish Avalon
 | `deregister_plugins()`           |             |
 | `registered_host()`              | `module`    | Return currently registered host
 | `registered_families()`          | `list`      | Return currently registered families
@@ -735,28 +735,28 @@ Internally, Pyblish instances and containers are distinguished from native conte
 
 | Name                         | Description              | Example
 |:-----------------------------|:-------------------------|:----------
-| `pyblish.mindbender.container`  | Unit of incoming data    | `...:model_GRP`, `...:rig_GRP` 
-| `pyblish.mindbender.instance`   | Unit of outgoing data    | `Strange_model_default`
+| `pyblish.avalon.container`  | Unit of incoming data    | `...:model_GRP`, `...:rig_GRP` 
+| `pyblish.avalon.instance`   | Unit of outgoing data    | `Strange_model_default`
 
 <br>
 <br>
 
 ## Contract
 
-Mindbender defines these families.
+Avalon defines these families.
 
 | Family                 | Definition                                      | Link
 |:-----------------------|:------------------------------------------------|:------------
-| `mindbender.model`     | Geometry with deformable topology               | [Spec](#mindbendermodel)
-| `mindbender.rig`       | An articulated `mindbender.model` for animators | [Spec](#mindbenderrig)
-| `mindbender.animation` | Pointcached `mindbender.rig` for rendering      | [Spec](#mindbenderanimation)
-| `mindbender.lookdev`   | Shaded `mindbender.model` for rendering         | [Spec](#mindbenderlookdev)
+| `avalon.model`     | Geometry with deformable topology               | [Spec](#avalonmodel)
+| `avalon.rig`       | An articulated `avalon.model` for animators | [Spec](#avalonrig)
+| `avalon.animation` | Pointcached `avalon.rig` for rendering      | [Spec](#avalonanimation)
+| `avalon.lookdev`   | Shaded `avalon.model` for rendering         | [Spec](#avalonlookdev)
 
 <br>
 
 <img class="ornament" src="https://cloud.githubusercontent.com/assets/2152766/25314853/4c84d5e6-2843-11e7-9b66-4c4506c89320.png"/>
 
-### `mindbender.model`
+### `avalon.model`
 
 A generic representation of geometry.
 
@@ -793,9 +793,9 @@ A generic representation of geometry.
 
 <img class="ornament" src="https://cloud.githubusercontent.com/assets/2152766/25314863/87719ab8-2843-11e7-8509-1328f0847437.png"/>
 
-### `mindbender.rig`
+### `avalon.rig`
 
-The `mindbender.rig` contains the necessary implementation and interface for animators to animate. 
+The `avalon.rig` contains the necessary implementation and interface for animators to animate. 
 
 ![aud][] **Workfow**
 
@@ -836,7 +836,7 @@ Publishing.
 
 <img class="ornament" src="https://cloud.githubusercontent.com/assets/2152766/25314862/77be3eb4-2843-11e7-9a5f-9a1509751aa6.png"/>
 
-### `mindbender.animation`
+### `avalon.animation`
 
 Point positions and normals represented as one Alembic file.
 
@@ -871,7 +871,7 @@ The animator workflow is simplified by the fact that an INSTANCE is automaticall
 
 <img class="ornament" src="https://cloud.githubusercontent.com/assets/2152766/25314862/77be3eb4-2843-11e7-9a5f-9a1509751aa6.png"/>
 
-### `mindbender.lookdev`
+### `avalon.lookdev`
 
 ![aud][] **Workflow**
 
@@ -921,8 +921,8 @@ Shaders are exported relative the meshes in an INSTANCE.
 
 ## Contributing
 
-To contribute to this project, see one of the following pages for [mindbender/core](https://github.com/mindbender-studio/core) for function and API, [mindbender/setup](https://github.com/mindbender-studio/setup) for setup and distribution, [mindbender/config](https://github.com/mindbender-studio/config) for data.
+To contribute to this project, see one of the following pages for [avalon/core](https://github.com/getavalon/core) for function and API, [avalon/setup](https://github.com/getavalon/setup) for setup and distribution, [avalon/config](https://github.com/getavalon/config) for data.
 
-Contributing to any Mindbender project assumes a working knowledge of [Git](https://git-scm.com) and an understanding of the [Fork and Pull-Request](https://guides.github.com/activities/forking/) workflow.
+Contributing to any Avalon project assumes a working knowledge of [Git](https://git-scm.com) and an understanding of the [Fork and Pull-Request](https://guides.github.com/activities/forking/) workflow.
 
 Enjoy and hope to see you soon!

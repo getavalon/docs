@@ -10,8 +10,9 @@ This section is goal-oriented and shows how to solve a specific problem in a ser
 
 ## Install
 
-The Mindbender pipeline operates either as a *server* or *client*, where the installation methods depends on which one you identify yourself as.
+The Avalon pipeline operates either as a *server* or *client*, where the installation methods depends on which one you identify yourself as.
 
+- [Demo](#demo)
 - [Artist](#artist)
 - [Studio](#studio)
 
@@ -23,13 +24,43 @@ The Mindbender pipeline operates either as a *server* or *client*, where the ins
 
 In order to use Avalon, here's what you need.
 
+- Windows, Linux or OSX
 - [Python 2.7](https://www.python.org/downloads/) or [Python 3.6 (recommended)](https://www.python.org/downloads/)
-- [Git 2.x.x](https://git-scm.com/download)
+- [PyQt 5.6](https://www.riverbankcomputing.com/software/pyqt/download5) or above
+- [Git 2](https://git-scm.com/download) or above
+- [Docker 17](https://www.docker.com/) or above
 
-At this point we are ready to download Avalon and later customise it.
+**Test installations**
 
 ```bash
-git clone https://github.com/mindbender-studio/setup mindbender-setup --recursive
+python --version
+# Python 3.6.1
+python -c "from PyQt5.QtCore import PYQT_VERSION_STR as version;print(version)"
+# 5.7
+git --version
+# git version 2.8.3.windows.1
+docker --version
+# Docker version 17.05.0-ce, build 89658be
+```
+
+**Download**
+
+At this point we are ready to download Avalon, distributed as a single directory with dependencies or references to paths outside of its directory.
+
+```bash
+git clone https://github.com/getavalon/setup avalon-setup --recursive
+```
+
+<br>
+<br>
+<br>
+
+### Demo
+
+If you have just discovered Avalon and would like to take it for a spin, this section is for you.
+
+```bash
+# Commands to get running quickly
 ```
 
 <br>
@@ -40,36 +71,15 @@ git clone https://github.com/mindbender-studio/setup mindbender-setup --recursiv
 
 If you are an artist working with a studio remotely, this section is for you.
 
-
-
-**1. Configure**
-
-Next, create a new file, such as on your Desktop and copy/paste the following.
-
-`mb-gui.bat`
-
 ```bash
-@echo off
-
-set MINDBENDER_MONGO=<login>
-set MINDBENDER_PROJECTS=<projects>
-
-call <path>\mindbender-setup\mb-gui.bat
+# Commands to get started as an artist
 ```
-
-1. Replace `<login>` with your login information, e.g. `mongodb://localhost:27017`
-2. Replace `<projects>` with the full path to your project files, e.g. `m:\f01_projects`
-3. Replace `<path>` to the full path to where you installed `mindbender-setup`, e.g. `c:\users\marcus`
-
-**2. Launch**
-
-Finally, double-click your `mb-gui.bat` and off you go!
 
 ![untitled project](https://cloud.githubusercontent.com/assets/2152766/26095001/00d078c0-3a14-11e7-9b9b-892fd7aec01b.gif)
 
 **Congratulations!**
 
-You are now fully equipped to handle Mindbender tasks!
+You are now fully equipped to handle Avalon tasks!
 
 <br>
 <br>
@@ -93,13 +103,12 @@ With the database installed and running, configure your `mb-gui.bat` to point to
 
 ### Update
 
-To update mindbender-setup, run the `update.bat` file supplied within the `mindbender-setup` directory.
-
-Alternatively, you may type this.
+To update avalon-setup, type this.
 
 ```bash
-$ cd mindbender-setup
+$ cd avalon-setup
 $ git pull
+$ git submodule init
 $ git submodule update --recursive
 ```
 
@@ -116,12 +125,16 @@ To create a new project, create a new directory and fetch default values like th
 ```bash
 $ mkdir myProject
 $ cd myProject
-$ python -m mindbender.inventory --init
+$ python -m avalon.inventory --init
 $ # Edit .inventory.toml and .config.toml
-$ python -m mindbender.inventory --save
+$ python -m avalon.inventory --save
 ```
 
-The `mindbender.inventory` module will take into account the name of the parent directory as the project name and produce two files, the "inventory" and "config".
+The `avalon.inventory` module will take into account the name of the parent directory as the project name and produce two files, the "inventory" and "config".
 
 - See [Project Inventory API](reference/#project-inventory-api) for details on how to manage your `.inventory.toml` file.
 - See [Project Configuration API](reference/#project-configuration-api) for details on how to manage your `.config.toml` file.
+
+<br>
+<br>
+<br>
