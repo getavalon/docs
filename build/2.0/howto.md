@@ -65,10 +65,25 @@ If you have just discovered Avalon and would like to take it for a spin, this se
 **Prerequisites**
 
 - Maya 2015 or above
+- Nuke 11.0 or above
 
 ```bash
-cd avalon-example/projects/spiderman
-mayapy build.py
+cd avalon-example/projects/batman
+python build.py
+# -----------------------
+# Building "batman"
+# -----------------------
+# Modeling..
+# Rigging..
+# Animating..
+# Shading..
+# Rendering..
+# Compositing..
+# Editing..
+# Delivering..
+#
+# Success!
+$ 
 ```
 
 <br>

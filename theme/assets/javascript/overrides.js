@@ -6,7 +6,7 @@ window.addEventListener("load", function () {
     select.selectedIndex = document.location.href.endsWith("1.0/") ? 1 : 2;
 
     function onSelectChanged() {
-        document.location.href = "/docs/" + select.value;
+        document.location.href = "/" + select.value;
     }
 
     if (select.addEventListener) {
