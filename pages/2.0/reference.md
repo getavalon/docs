@@ -6,23 +6,36 @@
 
 # Reference
 
-This section covers high-level aspects of Avalon in an information-oriented fashion. For library reference, see the [Library Reference]() link below.
+This section covers high-level aspects of Avalon in an information-oriented fashion.
 
-- [Library Reference](https://getavalon.github.io/core)
+
+!!! note "Looking for API reference?"
+
+    See the auto-generated documentation for the [Avalon API](https://getavalon.github.io/core).
 
 <br>
 <br>
 
-## Schema
+## Content Life Cycle
+
+Data in Avalon is either persistent of in transit. Persistent data resides in either a file-system or database, whereas data in transit is in one of three states.
+
+- Created
+- Imported
+- Exported
+
+![image](https://user-images.githubusercontent.com/2152766/27455082-0ee1cebc-5794-11e7-926e-357cc05a1ec0.png)
+
+<br>
+<br>
+
+## Object Model
+
+All data in Avalon is divided into exactly 4 parts.
 
 ![image](https://cloud.githubusercontent.com/assets/2152766/22086121/8c037080-ddd7-11e6-9149-439203c32c6b.png)
 
-Available schemas are organised hierarchically, with the former containing the latter.
-
-- [`asset.json`](#assetjson)
-    - [`subset.json`](#subsetjson)
-        - [`version.json`](#versionjson)
-            - [`representation.json`](#representationjson)
+Each object containing a series of members defined by an explicit schema, enforced via [jsonschema](http://json-schema.org/) and organised hierarchically with the former containing the latter.
 
 <br>
 
@@ -30,61 +43,7 @@ Available schemas are organised hierarchically, with the former containing the l
 
 A project is a top-level object that cannot be contained elsewhere, but contains everything relevant to a given project.
 
-**Example**
-
-```json
-{
-    "config": {
-        "apps": [
-            {
-                "label": "Autodesk Maya 2016", 
-                "name": "maya2016"
-            }, 
-            {
-                "label": "The Foundry Nuke 10.0", 
-                "name": "nuke10"
-            }
-        ], 
-        "schema": "avalon-core:config-1.0", 
-        "tasks": [
-            {
-                "name": "model"
-            }, 
-            {
-                "name": "render"
-            }, 
-            {
-                "name": "animate"
-            }, 
-            {
-                "name": "rig"
-            }, 
-            {
-                "name": "lookdev"
-            }, 
-            {
-                "name": "layout"
-            }
-        ], 
-        "template": {
-            "publish": "{root}/{project}/{silo}/{asset}/publish/{subset}/v{version:0>3}/{subset}.{representation}", 
-            "work": "{root}/{project}/{silo}/{asset}/work/{task}/{app}"
-        }
-    }, 
-    "data": {
-        "fps": 24, 
-        "height": 1080, 
-        "width": 1920
-    }, 
-    "name": "hulk", 
-    "schema": "avalon-core:project-2.0", 
-    "type": "project"
-}
-```
-
-**Source**
-
-- [project-2.0.json](https://github.com/getavalon/core/blob/master/avalon/schema/project-2.0.json)
+{{schema:project-2.0.json}}
 
 <br>
 
@@ -92,23 +51,7 @@ A project is a top-level object that cannot be contained elsewhere, but contains
 
 A part of a project, such as a Character or Shot.
 
-**Example**
-
-```json
-{
-    "data": {
-        "key": "value"
-    }, 
-    "name": "Bruce", 
-    "schema": "avalon-core:asset-2.0", 
-    "silo": "assets", 
-    "type": "asset"
-}
-```
-
-**Source**
-
-- [asset-2.0.json](https://github.com/getavalon/core/blob/master/avalon/schema/asset-2.0.json)
+{{schema:asset-2.0.json}}
 
 <br>
 
@@ -116,23 +59,7 @@ A part of a project, such as a Character or Shot.
 
 A part of an [Asset](#asset), such as a model or a rig.
 
-**Example**
-
-```json
-{
-    "data": {
-        "endFrame": 1201, 
-        "startFrame": 1000
-    }, 
-    "name": "shot01", 
-    "schema": "avalon-core:subset-2.0", 
-    "type": "subset"
-}
-```
-
-**Source**
-
-- [subset-2.0.json](https://github.com/getavalon/core/blob/master/avalon/schema/subset-2.0.json)
+{{schema:subset-2.0.json}}
 
 <br>
 
@@ -142,30 +69,7 @@ An immutable iteration of a [Subset](#subset).
 
 Versions are immutable, in that they never change once made. This is in stark contrast to mutable versions which is when one version may be "updated" such that the same file now contains new information.
 
-**Example**
-
-```json
-{
-    "data": {
-        "author": "marcus", 
-        "families": [
-            "avalon.model"
-        ], 
-        "source": "{root}/f02_prod/assets/BubbleWitch/work/modeling/marcus/maya/scenes/model_v001.ma", 
-        "time": "20170510T090203Z"
-    }, 
-    "locations": [
-        "data.avalon.com"
-    ], 
-    "name": 12, 
-    "schema": "avalon-core:version-2.0", 
-    "type": "version"
-}
-```
-
-**Source**
-
-- [version-2.0.json](https://github.com/getavalon/core/blob/master/avalon/schema/version-2.0.json)
+{{schema:version-2.0.json}}
 
 <br>
 
@@ -179,58 +83,15 @@ Representation are very powerful and lie at the heart of assets that are more th
 
 As a practical example, a Look is stored as both an MA scene file and a JSON. The JSON stores the shader relationships, whereas the MA file stores the actual shaers. Same data, different representations.
 
-**Example**
-
-```json
-{
-    "context": {
-        "asset": "Bruce", 
-        "project": "hulk", 
-        "representation": "ma", 
-        "silo": "assets", 
-        "subset": "rigDefault", 
-        "version": 12
-    }, 
-    "data": {
-        "label": "Alembic"
-    }, 
-    "dependencies": [
-        "592d547a5f8c1b388093c145"
-    ], 
-    "name": "abc", 
-    "schema": "avalon-core:representation-2.0", 
-    "type": "representation"
-}
-```
-
-**Source**
-
-- [representation-2.0.json](https://github.com/getavalon/core/blob/master/avalon/schema/representation-2.0.json)
+{{schema:representation-2.0.json}}
 
 <br>
 
 ### Container
 
-An imported VERSION, as yielded from `api.registered_host().ls()`.
+An imported [Version](#version), as yielded from `api.registered_host().ls()`.
 
-**Example**
-
-```json
-{
-    "asset": "Bruce", 
-    "author": "Marcus Ottosson", 
-    "name": "modelDefault", 
-    "objectName": "modelDefault_CON", 
-    "path": "|someParent|someNamespace_:modelDefault_CON", 
-    "schema": "avalon-core:container-2.0", 
-    "subset": "modelDefault", 
-    "version": 12
-}
-```
-
-**Source**
-
-- [container-1.0.json](https://github.com/getavalon/core/blob/master/avalon/schema/container-1.0.json)
+{{schema:container-1.0.json}}
 
 Avalon hosts a series of [graphical user interfaces](#batteries) that aid the user in conforming to the specified [contracts](#contract).
 
@@ -241,31 +102,7 @@ Avalon hosts a series of [graphical user interfaces](#batteries) that aid the us
 
 Public members of `avalon.api`
 
-| Member | Returns | Description
-|:-------|:--------|:--------
-| `install` | `null` | Install `host` into the running Python session.
-| `uninstall` | `null` | Undo all of what `install()` did
-| `schema` | `null` | JSON Schema utilities
-| `Loader` | `null` | Load representation into host application
-| `Creator` | `null` | Determine how assets are created
-| `discover` | `null` | Find and return subclasses of `superclass`
-| `register_host` | `null` | Register a new host for the current process
-| `register_format` | `null` | Register a supported format
-| `register_plugin_path` | `null` | Register a directory of one or more plug-ins
-| `register_plugin` | `null` | Register an individual `obj` of type `superclass`
-| `register_root` | `null` | Register currently active root
-| `registered_root` | `null` | Return currently registered root
-| `registered_plugin_paths` | `null` | Return all currently registered plug-in paths
-| `registered_host` | `null` | Return currently registered host
-| `deregister_plugin` | `null` | Oppsite of `register_plugin()`
-| `deregister_plugin_path` | `null` | Oppsite of `register_plugin_path()`
-| `deregister_format` | `null` | Deregister a supported format
-| `format_staging_dir` | `null` | Return directory used for staging of published assets
-| `format_version` | `null` | Produce filesystem-friendly string from integer version
-| `find_latest_version` | `null` | Return latest version from list of versions
-| `parse_version` | `null` | Return integer version from formatted string
-| `logger` | `null` | 
-| `time` | `null` | Return file-system safe string of current date and time
+{{api:members}}
 
 <br>
 <br>
@@ -276,17 +113,17 @@ A host must implement the following members.
 
 | Member                                 | Returns    | Description
 |:---------------------------------------|:-----------|:--------
-| `ls()`                                 | `generator`| List loaded assets
-| `create(name, family, options=None)`   | `str`      | Build fixture for outgoing data (see [instance]()), returns instance.
-| `load(asset, subset, version=-1, representation=None)` | `None`      | Import external data into [container]()
-| `update(container, version=-1)`        | `None`     | Update an existing container
-| `remove(container)   `                 | `None`     | Remove an existing container
+| `ls`                                 | `generator`| List loaded assets
+| `create`   | `str`      | Build fixture for outgoing data (see [instance]()), returns instance.
+| `load` | `None`      | Import external data into [container]()
+| `update`        | `None`     | Update an existing container
+| `remove`                 | `None`     | Remove an existing container
 
 <br>
 
 #### Information hierarchy
 
-Loaded data is stored in a `container`. A container hosts a loaded asset along with metadata used to associate assets that use other assets, such as a Wheel asset used in a Car asset.
+Imported data is stored in a `container`. A container hosts a loaded asset along with metadata used to associate assets that use other assets, such as a Wheel asset used in a Car asset.
 
 ![Host data relationship](https://cloud.githubusercontent.com/assets/2152766/18905784/aa6a3d5c-855c-11e6-9843-b24ebd23c4ac.png)
 
@@ -492,11 +329,11 @@ api.register_family(
 
 For each family, a **common set of data** is automatically associated with the resulting instance.
 
-```python
+```json
 {
     "id": "pyblish.avalon.instance",
-    "family": {chosen family}
-    "name": {chosen name}
+    "family": "{chosen family}",
+    "name": "{chosen name}"
 }
 ```
 

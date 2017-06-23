@@ -1,4 +1,3 @@
-build: false
 template: 1.0.html
 
 # Avalon

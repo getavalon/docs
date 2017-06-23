@@ -1,7 +1,22 @@
 # Generate markdown from markdown template.
 # 2.0.template -> 2.0.md
 
+import sys
 import json
+import shutil
+import contextlib
+import subprocess
+from tempfile import mkdtemp
+
+
+@contextlib.contextmanager
+def tempfile(name):
+    try:
+        tempdir = mkdtemp()
+        fname = os.path.join(tempdir, name)
+        yield fname
+    finally:
+        shutil.rmtree(tempdir)
 
 
 def on_template(template):
@@ -12,6 +27,12 @@ def on_template(template):
     if key == "api" and value == "members":
         return on_api_members()
     return template
+
+
+def on_block(language, block):
+    if language == "python":
+        return on_python(block)
+    return ""
 
 
 def on_api_members():
@@ -72,12 +93,16 @@ def on_schema(name):
                               "description" % (key, name))
 
         data["key"] = key
-        data["type"] = {
-            "string": "str",
-            "number": "int",
-            "array": "list",
-            "object": "dict"
-        }[data["type"]]
+
+        try:
+            data["type"] = {
+                "string": "str",
+                "number": "int",
+                "array": "list",
+                "object": "dict"
+            }[data["type"]]
+        except KeyError:
+            data["type"] = "any"
 
         data["required"] = str(key in schema.get("required", {}))
         definition += row.format(**data)
@@ -88,33 +113,128 @@ def on_schema(name):
 - [{name}](https://github.com/getavalon/core/blob/master/avalon/schema/{name})
 """.format(name=name)
 
-    return "\n".join([example, link])
+    return os.linesep.join([example, link])
+
+
+def on_python(block):
+    with tempfile("block.py") as fname:
+        with open(fname, "w") as f:
+            f.write(os.linesep.join(block))
+
+        try:
+            output = subprocess.check_output(
+                [sys.executable, fname],
+                stderr=subprocess.STDOUT,
+                universal_newlines=True
+            )
+        except subprocess.CalledProcessError as e:
+            output = e.output
+
+    output = "\n".join(
+        "<span class=\"p\">{line}</span>".format(line=line)
+        for line in output.splitlines()
+    )
+
+    return """\
+```python
+{input}
+```
+
+<table class="codehilitetable output">
+  <tbody>
+    <tr>
+      <td class="code">
+        <div class="codehilite" id="__code_1">
+          <pre>
+{output}\
+          </pre>
+        </div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+""".format(input="".join(block),
+           output=output) if output else ""
 
 
 def parse(fname):
     parsed = list()
+    blocks = list()
 
     with open(fname) as f:
+        in_block = False
+        current_block = None
+        current_language = None
+        line_no = 0
         for line in f:
+            line_no += 1
+
+            if line_no == 1 and line.startswith("build: false"):
+                print("Skipping '%s'.." % fname)
+                parsed = f.read()
+                break
+
             if line.startswith("{{"):
                 line = on_template(line)
 
-            parsed.append(line)
+            if in_block and line.startswith("```"):
+                line = on_block(current_language, current_block)
+                in_block = False
+                current_language = None
+                parsed.append(line)
+
+            elif in_block:
+                current_block.append(line)
+
+            elif line.startswith("```python"):
+                in_block = True
+                current_language = "python"
+                current_block = list()
+                blocks.append(current_block)
+
+            else:
+                parsed.append(line)
 
     return "".join(parsed)
 
 
 if __name__ == '__main__':
     import os
+    import argparse
 
-    for base, dirs, files in os.walk("pages"):
-        for fname in files:
-            name, ext = os.path.splitext(fname)
-            if ext != ".template":
-                continue
+    parser = argparse.ArgumentParser()
+    parser.add_argument("path", nargs='?')
 
-            print("Building '%s'.." % name)
-            parsed = parse(os.path.join(base, fname))
+    args = parser.parse_args()
 
-            with open(os.path.join(base, name + ".md"), "w") as f:
-                f.write(parsed)
+    cd = os.path.abspath(os.path.dirname(__file__))
+    os.chdir(cd)
+
+    if args.path and os.path.isfile(args.path):
+        files = [args.path]
+    else:
+        files = list()
+        path = args.path
+
+        for base, dirs, fnames in os.walk("pages"):
+            for fname in fnames:
+                name, ext = os.path.splitext(fname)
+                if ext != ".md":
+                    continue
+
+                src = os.path.join(base, fname)
+
+                files.append(src)
+
+    results = list()
+    for src in files:
+        print("Building '%s'.." % src)
+        dst = src.replace("pages", "build")
+        parsed = parse(src)
+        results.append((dst, parsed))
+
+    # Parsing can take some time, so write
+    # files all in one batch when done
+    for dst, parsed in results:
+        with open(dst, "w") as f:
+            f.write(parsed)

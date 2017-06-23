@@ -2,7 +2,6 @@
 site_name: Avalon
 site_description: A global production pipeline for film and games
 site_author: Marcus Ottosson
-# site_url: http://getavalon.github.io/docs
 
 # Repository
 repo_name: avalon/core
@@ -32,11 +31,7 @@ pages:
 
 # Theme directory
 theme_dir: theme
-docs_dir: pages
-extra_css:
-  - "css/extra.css"
-extra_javascript:
-  - "js/extra.js"
+docs_dir: build
 
 # Options
 extra:
