@@ -276,7 +276,7 @@ body {
 }
 
 img {
-  max-width: initial;
+  max-width: 680px;
 }
 
 [data-md-color-primary] .md-typeset a.button {
