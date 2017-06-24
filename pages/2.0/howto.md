@@ -2,7 +2,7 @@
 
 # How to
 
-This section is goal-oriented and shows how to solve a specific problem in a series of steps.
+Here you'll find short answers to "How do I..?" types of questions. These how-to guides don’t cover topics in depth – you'll find that material in the [Using Avalon]() and the [Reference](reference/). However, these guides will help you quickly accomplish common tasks.
 
 <br>
 <br>
@@ -25,11 +25,9 @@ The Avalon pipeline operates either as a *server* or *client*, where the install
 In order to use Avalon, here's what you need.
 
 - Windows, Linux or OSX
-- [Python 2.7](https://www.python.org/downloads/) or [Python 3.6 (recommended)](https://www.python.org/downloads/)
-- [PyQt 5.6](https://www.riverbankcomputing.com/software/pyqt/download5) or above
 - [Git 2.0](https://git-scm.com/download) or above
-- [Docker 17.0](https://www.docker.com/) or above
-- [Mongo 3.4](https://www.mongodb.com/) or above
+- [Python 3.6](https://www.python.org/downloads/) or above
+- [PyQt 5.6](https://www.riverbankcomputing.com/software/pyqt/download5) or above
 
 **Test installations**
 
@@ -37,13 +35,9 @@ In order to use Avalon, here's what you need.
 python --version
 # Python 3.6.1
 python -c "from PyQt5.QtCore import PYQT_VERSION_STR as version;print(version)"
-# 5.7
+# 5.9
 git --version
 # git version 2.8.3.windows.1
-docker --version
-# Docker version 17.05.0-ce, build 89658be
-mongo --eval "db.version()" --quiet
-# 3.4.4
 ```
 
 **Download**
@@ -111,6 +105,22 @@ You are now fully equipped to handle Avalon tasks!
 ### Studio
 
 If you are setting up Avalon in your studio, this section is for you.
+
+**Prerequisities**
+
+In addition to the global prerequisities, you'll also need these.
+
+- [Docker 17.0](https://www.docker.com/) or above
+- [Mongo 3.4](https://www.mongodb.com/) or above
+
+**Test installations**
+
+```bash
+docker --version
+# Docker version 17.05.0-ce, build 89658be
+mongo --eval "db.version()" --quiet
+# 3.4.4
+```
 
 In Avalon there are two types of data - files, and documents. Files are stored on your file-system whereas documents are stored in a document-database as JSON. In order to read and write data, you will need to install the database software.
 

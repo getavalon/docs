@@ -2,6 +2,14 @@ template: 1.0.html
 
 # Avalon
 
+<div style="text-align: center">
+    <img src="https://user-images.githubusercontent.com/2152766/27349489-58285f06-55ef-11e7-9229-b89320eae405.png">
+    <p style="margin: 0">The safe post-production pipeline</p>
+</div>
+
+<br>
+<br>
+
 - **Keywords:** Film, games, content creation, pipeline
 
 - **Objective:**

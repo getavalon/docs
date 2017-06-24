@@ -10,10 +10,11 @@ template: home.html
 	<p style="margin: 0">The safe post-production pipeline</p>
 </div>
 
-<br>
-<br>
-<br>
+<a href="howto/" class="button blue">Download</a>
 
+<br>
+<br>
+<br>
 
 <div class="flex-container">
 	<a class="flex-item" href="overview/">
@@ -50,7 +51,7 @@ template: home.html
 			<div class="image-container">
 				<img src="https://user-images.githubusercontent.com/2152766/27353545-483787ae-55fc-11e7-9d7f-242b3f038ada.png">
 			</div>
-			<h3>Develop</h3>
+			<h3>GitHub</h3>
 			<p>Contribute to the MIT-licensed project on GitHub.</p>
 		</div>
 	</a>
@@ -91,15 +92,6 @@ Avalon is a Python framework for the post-production Pipeline that encourages sa
 	</tr>
 	<tr>
 		<td>
-			<img src="https://user-images.githubusercontent.com/2152766/27373642-0674784e-5661-11e7-9215-7a83af26bc10.png">
-		</td>
-		<td>
-			<h3>Scalable</h3>
-			Got an idea in mind for producing a film with your friends? Bidding on your next blockbuster venture with Marvel? Avalon builds on best practices from some of the largest visual effects organisations in the world and is designed to facilitate growth.
-		</td>
-	</tr>
-	<tr>
-		<td>
 			<img src="https://user-images.githubusercontent.com/2152766/27373644-0783499a-5661-11e7-96dc-7b1690aee5f1.png">
 		</td>
 		<td>
@@ -107,16 +99,54 @@ Avalon is a Python framework for the post-production Pipeline that encourages sa
 			Amongst the thousands of production tasks spread across tens and sometimes hundreds of artists, a large fraction of labour is repetative. Tedious. Avalon is designed to automate needless tasks so as to let your creatives stay creative.
 		</td>
 	</tr>
+	<tr>
+		<td>
+			<img src="https://user-images.githubusercontent.com/2152766/27373642-0674784e-5661-11e7-9215-7a83af26bc10.png">
+		</td>
+		<td>
+			<h3>Scalable</h3>
+			Got an idea in mind for producing a film with your friends? Bidding on your next blockbuster venture with Marvel? Avalon builds on best practices from some of the largest visual effects organisations in the world and is designed to facilitate growth.
+		</td>
+	</tr>
 </table>
 
-<a href="introduction/" class="cta outline">Learn more about Avalon</a>
+<a href="introduction/" class="button red">Learn more about Avalon</a>
+
 
 <br>
 <br>
+
+<div style="display: none">
+TODO(marcus): Format this nicely.
 
 ---
 
 <br>
+
+## Built on
+
+!!! danger "Note to self"
+
+	Format this
+
+Open source software used in this open source software.
+
+- Pyblish
+- jsonschema
+- qtawesome
+- requests
+- six
+- Qt.py
+- toml
+- MongoDB
+- PyMongo
+- PyQt
+- Qt
+- QML
+
+<br>
+
+---
 
 ## Support
 
@@ -144,24 +174,55 @@ Avalon is a Python framework for the post-production Pipeline that encourages sa
 
 <br>
 
-## Development
+## Industries
 
-This pipeline is being developed in collaboration with other production houses and service providers.
+<div class="flex-container">
+	<a class="flex-item" href="overview/">
+		<div class="flex-translator">
+			<div class="image-container">
+				<img src="https://user-images.githubusercontent.com/2152766/27348772-159b0b4a-55ed-11e7-8e0e-f780fc47d0c8.png">
+			</div>
+			<h3>Animation & Graphic Design</h3>
+			<p>Track complex animation productions and communicate with your team of artists to ensure everyone is on the same page and on schedule.</p>
+		</div>
+	</a>
 
-2. [GitHub]() is used for (1) issue tracking, (2) continuous integration and (3) hosting of code.
-3. [Gitter]() is being used for real-time group conversations.
-1. [Discourse]() is used for questions and answers.
+	<a class="flex-item" href="https://getavalon.github.io/core/">
+		<div class="flex-translator">
+			<div class="image-container">
+				<img src="https://user-images.githubusercontent.com/2152766/27348723-ecc52d72-55ec-11e7-82b3-b1cc486fc423.png">
+			</div>
+			<h3>Episodic TV & Feature Film</h3>
+			<p>Let ftrack become the backbone of your VFX pipeline as its powerful API and integrations allow your studio to collaborate with production teams worldwide.</p>
+		</div>
+	</a>
 
-All past, current and future development is [documented on GitHub](https://github.com/getavalon/core/issues) and organised by priority as a [GitHub Project](https://github.com/getavalon/core/projects/1?fullscreen=true)
+	<a class="flex-item" href="https://github.com/getavalon/core">
+		<div class="flex-translator">
+			<div class="image-container">
+				<img src="https://user-images.githubusercontent.com/2152766/27353545-483787ae-55fc-11e7-9d7f-242b3f038ada.png">
+			</div>
+			<h3>Marketing & Advertising</h3>
+			<p>Manage your shortform project team and assets to ensure a smooth production with tight deadlines. Review media with collaborators and clients to gain swift approval.</p>
+		</div>
+	</a>
 
-- [avalon/issues](https://github.com/getavalon/core/issues)
-- [avalon/projects](https://github.com/getavalon/core/projects)
+	<a class="flex-item" href="https://github.com/getavalon/core">
+		<div class="flex-translator">
+			<div class="image-container">
+				<img src="https://user-images.githubusercontent.com/2152766/27353545-483787ae-55fc-11e7-9d7f-242b3f038ada.png">
+			</div>
+			<h3>Virtual & Augmented Reality</h3>
+			<p>Create your next cutting edge VR/AR project with a production proven solution to ensure your team reaches the finish line on time and on budget.</p>
+		</div>
+	</a>
+</div>
 
-To contribute to this project, see one of the following pages for [avalon/core](https://github.com/getavalon/core) for function and API, [avalon/setup](https://github.com/getavalon/setup) for setup and distribution, [avalon/config](https://github.com/getavalon/config) for data.
+<br>
 
-Contributing to any Avalon project assumes a working knowledge of [Git](https://git-scm.com) and an understanding of the [Fork and Pull-Request](https://guides.github.com/activities/forking/) workflow.
+---
 
-Enjoy and see you soon!
+</div>
 
 <br>
 <br>

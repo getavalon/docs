@@ -39,11 +39,11 @@ def on_api_members():
     from avalon import api
 
     table = """\
-| Member | Returns | Description
-|:-------|:--------|:--------
+| Member | Description
+|:-------|:--------
 """
 
-    row = "| `{name}` | `{returns}` | {description}\n"
+    row = "| `{name}` | {description}\n"
 
     for name in api.__all__:
         member = getattr(api, name)
@@ -54,7 +54,6 @@ def on_api_members():
 
         table += row.format(
             name=name,
-            returns="null",
             description=doc.splitlines()[0]
         )
 
@@ -108,12 +107,12 @@ def on_schema(name):
         definition += row.format(**data)
 
     link = """\
-**Source**
-
-- [{name}](https://github.com/getavalon/core/blob/master/avalon/schema/{name})
+<a href="https://github.com/getavalon/core/tree/master/avalon/schema/{name}" title="{name}" class="md-source-file">
+{name}
+</a>
 """.format(name=name)
 
-    return os.linesep.join([example, link])
+    return os.linesep.join([link, example])
 
 
 def on_python(block):
@@ -135,11 +134,13 @@ def on_python(block):
         for line in output.splitlines()
     )
 
-    return """\
+    source = """\
 ```python
 {input}
 ```
+""".format(input="".join(block))
 
+    output = """\
 <table class="codehilitetable output">
   <tbody>
     <tr>
@@ -153,8 +154,9 @@ def on_python(block):
     </tr>
   </tbody>
 </table>
-""".format(input="".join(block),
-           output=output) if output else ""
+""".format(output=output) if output else ""
+
+    return "\n".join([source, output])
 
 
 def parse(fname):
@@ -178,6 +180,8 @@ def parse(fname):
                 line = on_template(line)
 
             if in_block and line.startswith("```"):
+                print("Running Python..")
+                print("".join("\t%s" % line for line in current_block))
                 line = on_block(current_language, current_block)
                 in_block = False
                 current_language = None

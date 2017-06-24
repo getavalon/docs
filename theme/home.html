@@ -1,4 +1,5 @@
 {% extends "main.html" %}
+
 {% block site_nav %}
   {% if nav %}
     <div style="display: none" class="md-sidebar md-sidebar--primary" data-md-component="navigation">
@@ -18,4 +19,8 @@
       </div>
     </div>
   {% endif %}
+
+{% endblock %}
+{% block htmltitle %}
+    <title>{{ config.site_name }}</title>
 {% endblock %}

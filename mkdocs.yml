@@ -20,9 +20,10 @@ pages:
     - Introduction: 2.0/introduction.md
     - Overview: 2.0/overview.md
     - Tutorials: 2.0/tutorials.md
-    - How To: 2.0/howto.md
+    - '"How-to" Guides': 2.0/howto.md
     - Topic Guides: 2.0/guides.md
     - Reference: 2.0/reference.md
+    - Glossary: 2.0/glossary.md
   - Polly:
     - Home: polly/index.md
     - Assets: polly/assets.md

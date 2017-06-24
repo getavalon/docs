@@ -3022,10 +3022,10 @@ window.app = function(e) {
 						t = this.offset_ - e < 0;
 					if (this.dir_ !== t && (this.index_ = this.index_ = t ? 0 : this.els_.length - 1), 0 !== this.anchors_.length) {
 						if (this.offset_ <= e)
-							for (var n = this.index_ + 1; n < this.els_.length && this.anchors_[n].offsetTop - 80 <= e; n++) n > 0 && (this.els_[n - 1].dataset.mdState = "blur"), this.index_ = n;
+							for (var n = this.index_ + 1; n < this.els_.length && this.anchors_[n].offsetTop - 200 <= e; n++) n > 0 && (this.els_[n - 1].dataset.mdState = "blur"), this.index_ = n;
 						else
 							for (var r = this.index_; r >= 0; r--) {
-								if (!(this.anchors_[r].offsetTop - 80 > e)) {
+								if (!(this.anchors_[r].offsetTop - 200 > e)) {
 									this.index_ = r;
 									break
 								}

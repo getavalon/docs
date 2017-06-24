@@ -1,15 +1,17 @@
 # Introduction
 
-<div style="text-align: center">
-	<img src="https://user-images.githubusercontent.com/2152766/27349489-58285f06-55ef-11e7-9229-b89320eae405.png">
-	<p style="margin: 0">The safe post-production pipeline</p>
-</div>
+![image](https://user-images.githubusercontent.com/2152766/27507841-177a9d8c-58d0-11e7-9674-6f1b7d8fb2aa.png)
 
 !!! note "Target audience"
 
 	This section is for readers unfamiliar with Avalon and assumes no prior knowledge.
 
-Avalon is a Python framework for the post-production pipeline and targets small (5) to mid-sized (25) groups of people producing film with elements of 3d animation.
+Avalon is a Python framework for the post-production pipeline and targets small (5) to mid-sized (25) groups of people producing film with elements of 3d animation in the following industries.
+
+- Animation and Graphic Design
+- Episodic TV and Feature Film
+- Marketing and Advertising
+- Virtual and Augmented Reality industries
 
 **Avalon...**
 
