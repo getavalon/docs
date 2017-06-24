@@ -204,6 +204,10 @@ body {
   flex-grow: 1;
 }
 
+.flex-translator:hover p, .flex-translator:hover h3 {
+    color: #0094d6;
+}
+
 .flex-item .image-container {
   height: 170px;
 }
@@ -255,6 +259,15 @@ body {
   display: inline-block;
   width: 15px;
   font-size: 20px;
+}
+
+#home-features:not([class]) {
+  box-shadow: none;
+}
+
+#home-features th, #home-features td {
+  border-bottom: none; 
+  border-left: none 
 }
 
 #home-features tr {
