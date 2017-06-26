@@ -923,14 +923,3 @@ Shaders are exported relative the meshes in an INSTANCE.
 [dat]: https://cloud.githubusercontent.com/assets/2152766/18576836/f6ca19e4-7bdc-11e6-9ef8-3614474c58bb.png
 [req]: https://cloud.githubusercontent.com/assets/2152766/18576838/f6da783e-7bdc-11e6-9935-78e1a6438e44.png
 [aud]: https://cloud.githubusercontent.com/assets/2152766/18576837/f6d9c970-7bdc-11e6-8899-6eb8686b4173.png
-
-<br>
-<br>
-
-## Contributing
-
-To contribute to this project, see one of the following pages for [mindbender/core](https://github.com/getavalon/core) for function and API, [mindbender/setup](https://github.com/getavalon/setup) for setup and distribution, [mindbender/config](https://github.com/getavalon/config) for data.
-
-Contributing to any Mindbender project assumes a working knowledge of [Git](https://git-scm.com) and an understanding of the [Fork and Pull-Request](https://guides.github.com/activities/forking/) workflow.
-
-Enjoy and hope to see you soon!

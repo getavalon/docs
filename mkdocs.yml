@@ -2,6 +2,7 @@
 site_name: Avalon
 site_description: A global production pipeline for film and games
 site_author: Marcus Ottosson
+site_url: http://getavalon.github.io
 
 # Repository
 repo_name: avalon/core
@@ -18,10 +19,9 @@ pages:
   - "2.0":
     - " ": 2.0/index.md
     - Introduction: 2.0/introduction.md
-    - Overview: 2.0/overview.md
+    # - Overview: 2.0/overview.md
+    - Guides: 2.0/guides.md
     - Tutorials: 2.0/tutorials.md
-    - '"How-to" Guides': 2.0/howto.md
-    - Topic Guides: 2.0/guides.md
     - Reference: 2.0/reference.md
     - Glossary: 2.0/glossary.md
   - Polly:
@@ -55,7 +55,6 @@ extra:
 
 # Extensions
 markdown_extensions:
-  - meta
   - markdown.extensions.admonition
   - markdown.extensions.codehilite(guess_lang=false, linenums=true)
   - markdown.extensions.def_list

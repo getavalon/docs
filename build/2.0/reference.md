@@ -27,7 +27,7 @@ Data in Avalon is either persistent or in transit. Persistent data resides in ei
 
 <img class="ornament" src="https://user-images.githubusercontent.com/2152766/27510260-c4266d02-5904-11e7-8948-589df51d895a.png">
 
-### 1. Create
+### Create
 
 Creation is the process of introducing new data into a project and is divided into two parts; asset and subset creation.
 
@@ -64,7 +64,7 @@ class CreateModel(api.Creator):
 
 <img class="ornament" src="https://user-images.githubusercontent.com/2152766/27510285-4c59016c-5905-11e7-8f80-869454d09314.png">
 
-### 2. Import
+### Import
 
 Import is the process of parsing persistent data from disk and into the memory of a running application.
 
@@ -104,7 +104,7 @@ class LoadModel(api.Loader):
 
 <img class="ornament" src="https://user-images.githubusercontent.com/2152766/27510259-b58cee4c-5904-11e7-9def-43bde11171bc.png">
 
-### 3. Export
+### Export
 
 Export is the process of transforming in-memory data native to an application into something that can persist on disk. During export, data is funneled through a validation mechanism that check for consistency. Because of this additional mechanism, export is referred to as **publishing**.
 
@@ -143,7 +143,7 @@ class ExtractAvalonModel(api.InstancePlugin):
 
 <img class="ornament" src="https://user-images.githubusercontent.com/2152766/27510275-2f928544-5905-11e7-8059-90c4a1829ae4.png">
 
-### 4. Persist
+### Persist
 
 Once exported, data resides in one or two locations - as files in a file-system, or as documents in a database. The exact location within the file-system is governed by the [Project Configuration API](#project-configuration-api) via path "templates" - a string encoded with placeholder variables associated to the various objects in the [object model](#object-model), customisable per-project.
 
@@ -186,33 +186,6 @@ Each object containing a series of members defined by an explicit schema, enforc
 - Read about schemas in the [Database section](#database) below.
 
 <br>
-
-## Software
-
-Avalon assumes content is created within an application of some kind and manages the execution of each application via [Launcher](reference/#launcher).
-
-### Apps
-
-[Launcher](reference/#launcher) is responsible for launching "apps", such as Maya. "App" is the term used for a pre-configured application in Avalon.
-
-**Problem**
-
-It could call on `c:\Program Files\Autodesk\Maya2017\bin\maya.exe` directly, but doing so is problematic because..
-
-1. It assumes a particular operating system
-1. It assumes a particular installation directory
-1. It assumes a particular app is what you want for your project(s)
-1. It assumes no customisation of environment prior to launch
-
-**Solution**
-
-The [Project Executable API](reference/#project-executable-api) addresses this by splitting the problem it into three independently configurable parts.
-
-1. Apps are assumed to be available on your `PATH`, e.g. `maya.sh` or `maya.bat`
-2. Configuration is performed per application in an individual configuration file, e.g. `maya.toml`
-3. Apps are associated per project, e.g. Hulk uses Maya and Nuke.
-
-<br>
 <br>
 <br>
 
@@ -247,7 +220,23 @@ Subsets is the asset broken down into smaller sets of information, such as a rig
 | lookdev     | Hulk's look
 | animation   | Hulk's point cached geometry
 
-Each subset VERSION
+A subset must have a least one Version, which is typically immutable.
+
+| Version     | Comment
+|:------------|:-----------
+| v001        | Initial version
+| v002        | Fixed whole in mesh
+| v003        | Increased the size of pecs
+
+Finally in each version there is at least one Representation, typically a file or sequence of files.
+
+| Version     | Description
+|:------------|:-----------
+| ma          | Maya rig
+| mov         | Turntable
+| abc         | Still frame of mesh used in rig
+
+Read more about the kinds of objects in [Schemas](#schemas) below.
 
 <br>
 
@@ -310,7 +299,6 @@ project-2.0.json
         "width": 1920
     },
     "name": "hulk",
-    "parent": "592c33475f8c1b064c4d1696",
     "schema": "avalon-core:project-2.0",
     "type": "project"
 }
@@ -334,7 +322,6 @@ asset-2.0.json
         "key": "value"
     },
     "name": "Bruce",
-    "parent": "592c33475f8c1b064c4d1696",
     "schema": "avalon-core:asset-2.0",
     "silo": "assets",
     "type": "asset"
@@ -360,7 +347,6 @@ subset-2.0.json
         "startFrame": 1000
     },
     "name": "shot01",
-    "parent": "592c33475f8c1b064c4d1696",
     "schema": "avalon-core:subset-2.0",
     "type": "subset"
 }
@@ -394,7 +380,6 @@ version-2.0.json
         "data.avalon.com"
     ],
     "name": 12,
-    "parent": "592c33475f8c1b064c4d1696",
     "schema": "avalon-core:version-2.0",
     "type": "version"
 }
@@ -435,7 +420,6 @@ representation-2.0.json
         "592d547a5f8c1b388093c145"
     ],
     "name": "abc",
-    "parent": "592c33475f8c1b064c4d1696",
     "schema": "avalon-core:representation-2.0",
     "type": "representation"
 }
@@ -469,6 +453,35 @@ container-1.0.json
 <br>
 <br>
 
+## Software
+
+Avalon assumes content is created within an application of some kind and manages the execution of each application via [Launcher](reference/#launcher).
+
+### Apps
+
+[Launcher](reference/#launcher) is responsible for launching "apps", such as Maya. "App" is the term used for a pre-configured application in Avalon.
+
+**Problem**
+
+It could call on `c:\Program Files\Autodesk\Maya2017\bin\maya.exe` directly, but doing so is problematic because..
+
+1. It assumes a particular operating system
+1. It assumes a particular installation directory
+1. It assumes a particular app is what you want for your project(s)
+1. It assumes no customisation of environment prior to launch
+
+**Solution**
+
+The [Project Executable API](reference/#project-executable-api) addresses this by splitting the problem it into three independently configurable parts.
+
+1. Apps are assumed to be available on your `PATH`, e.g. `maya.sh` or `maya.bat`
+2. Configuration is performed per application in an individual configuration file, e.g. `maya.toml`
+3. Apps are associated per project, e.g. Hulk uses Maya and Nuke.
+
+<br>
+<br>
+<br>
+
 ## Library API
 
 Public members of `avalon.api`
@@ -481,7 +494,6 @@ Public members of `avalon.api`
 | `Loader` | Load representation into host application
 | `Creator` | Determine how assets are created
 | `discover` | Find and return subclasses of `superclass`
-| `loaders_by_representation` | Return `Loaders` compatible with the `representation`
 | `register_host` | Register a new host for the current process
 | `register_format` | Register a supported format
 | `register_plugin_path` | Register a directory of one or more plug-ins
@@ -731,7 +743,7 @@ api.register_family(
         <div class="codehilite" id="__code_1">
           <pre>
 <span class="p">Traceback (most recent call last):</span>
-<span class="p">  File "C:\Users\marcus\AppData\Local\Temp\tmpt06aghkk\block.py", line 5, in <module></span>
+<span class="p">  File "C:\Users\marcus\AppData\Local\Temp\tmp8eqgw0oi\block.py", line 5, in <module></span>
 <span class="p">    </span>
 <span class="p">AttributeError: module 'avalon.api' has no attribute 'register_family'</span>          </pre>
         </div>
@@ -770,7 +782,7 @@ api.register_data(
         <div class="codehilite" id="__code_1">
           <pre>
 <span class="p">Traceback (most recent call last):</span>
-<span class="p">  File "C:\Users\marcus\AppData\Local\Temp\tmpkbquo1yc\block.py", line 5, in <module></span>
+<span class="p">  File "C:\Users\marcus\AppData\Local\Temp\tmp_qjzqt3i\block.py", line 5, in <module></span>
 <span class="p">    </span>
 <span class="p">AttributeError: module 'avalon.api' has no attribute 'register_data'</span>          </pre>
         </div>
@@ -800,7 +812,7 @@ api.register_family(
         <div class="codehilite" id="__code_1">
           <pre>
 <span class="p">Traceback (most recent call last):</span>
-<span class="p">  File "C:\Users\marcus\AppData\Local\Temp\tmpttp1wei6\block.py", line 5, in <module></span>
+<span class="p">  File "C:\Users\marcus\AppData\Local\Temp\tmp0xh7ivcr\block.py", line 5, in <module></span>
 <span class="p">    </span>
 <span class="p">AttributeError: module 'avalon.api' has no attribute 'register_family'</span>          </pre>
         </div>
@@ -833,7 +845,7 @@ for asset in api.ls():
         <div class="codehilite" id="__code_1">
           <pre>
 <span class="p">Traceback (most recent call last):</span>
-<span class="p">  File "C:\Users\marcus\AppData\Local\Temp\tmp07mzo7oq\block.py", line 5, in <module></span>
+<span class="p">  File "C:\Users\marcus\AppData\Local\Temp\tmpm0sdnk_n\block.py", line 5, in <module></span>
 <span class="p">    </span>
 <span class="p">AttributeError: module 'avalon.api' has no attribute 'ls'</span>          </pre>
         </div>
@@ -868,13 +880,14 @@ api.register_host(maya)
         <div class="codehilite" id="__code_1">
           <pre>
 <span class="p">Traceback (most recent call last):</span>
-<span class="p">  File "C:\Users\marcus\AppData\Local\Temp\tmpz77ju9og\block.py", line 1, in <module></span>
+<span class="p">  File "C:\Users\marcus\AppData\Local\Temp\tmp9oe6x7b0\block.py", line 1, in <module></span>
 <span class="p">    from avalon import api, maya</span>
 <span class="p">  File "C:\modules\python-avalon\avalon\maya\__init__.py", line 7, in <module></span>
 <span class="p">    from .pipeline import (</span>
-<span class="p">  File "C:\modules\python-avalon\avalon\maya\pipeline.py", line 6, in <module></span>
-<span class="p">    from maya import cmds, OpenMaya</span>
-<span class="p">ModuleNotFoundError: No module named 'maya'</span>          </pre>
+<span class="p">  File "C:\modules\python-avalon\avalon\maya\pipeline.py", line 548</span>
+<span class="p">    except RuntimeError, e:</span>
+<span class="p">                       ^</span>
+<span class="p">SyntaxError: invalid syntax</span>          </pre>
         </div>
       </td>
     </tr>
@@ -909,13 +922,14 @@ for container in maya.ls():
         <div class="codehilite" id="__code_1">
           <pre>
 <span class="p">Traceback (most recent call last):</span>
-<span class="p">  File "C:\Users\marcus\AppData\Local\Temp\tmpjwv52_5c\block.py", line 1, in <module></span>
+<span class="p">  File "C:\Users\marcus\AppData\Local\Temp\tmpzjwql1ue\block.py", line 1, in <module></span>
 <span class="p">    from avalon import maya</span>
 <span class="p">  File "C:\modules\python-avalon\avalon\maya\__init__.py", line 7, in <module></span>
 <span class="p">    from .pipeline import (</span>
-<span class="p">  File "C:\modules\python-avalon\avalon\maya\pipeline.py", line 6, in <module></span>
-<span class="p">    from maya import cmds, OpenMaya</span>
-<span class="p">ModuleNotFoundError: No module named 'maya'</span>          </pre>
+<span class="p">  File "C:\modules\python-avalon\avalon\maya\pipeline.py", line 548</span>
+<span class="p">    except RuntimeError, e:</span>
+<span class="p">                       ^</span>
+<span class="p">SyntaxError: invalid syntax</span>          </pre>
         </div>
       </td>
     </tr>
@@ -939,7 +953,7 @@ api.register_host(nuke)
         <div class="codehilite" id="__code_1">
           <pre>
 <span class="p">Traceback (most recent call last):</span>
-<span class="p">  File "C:\Users\marcus\AppData\Local\Temp\tmp9_xk_gz_\block.py", line 3, in <module></span>
+<span class="p">  File "C:\Users\marcus\AppData\Local\Temp\tmpo6duqav9\block.py", line 3, in <module></span>
 <span class="p">    </span>
 <span class="p">NameError: name 'api' is not defined</span>          </pre>
         </div>

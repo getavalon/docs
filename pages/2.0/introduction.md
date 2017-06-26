@@ -6,7 +6,51 @@
 
 	This section is for readers unfamiliar with Avalon and assumes no prior knowledge.
 
-Avalon is a Python framework for the post-production pipeline and targets small (5) to mid-sized (25) groups of people producing film with elements of 3d animation in the following industries.
+Avalon is a Python framework for the post-production pipeline and targets small (5) to mid-sized (25) groups of people producing film with elements of 3d animation, including those working in the film, tv and games industries.
+
+## Challenges of a Shared Pipeline
+
+The typical production pipeline is mostly bespoke. Written for a specific industry [^1], organisation [^2], sometimes entirely written in accordance to the requirements of a specific project project [^3], with a dash of commercial and open source off-the-shelf software [maya, shotgun, alembic].
+
+With such specificity, how can it then be possible to build one pipeline for more than a single project, than a single organisation or industry?
+
+Different but similar.
+
+The trick is finding their commonality. What in each of these pipelines is shared?
+
+<br>
+
+### One Size Fits None
+
+Truth is there is no one-size-fits all. But there are a few similarities.
+
+Each pipeline..
+
+- ..divide projects into smaller, more manageable parts
+- ..divide parts amongst many departments
+- ..divide responsibilities of a department amongst many artists
+- ..consume and produce data
+- ..store and distribute data as files and database entries
+- ..pass data between artists and departments
+- ..have criteria for how data is passed
+- ..put parts back together once complete
+- ..iterate on data as "versions"
+- ..review iterations together for consistency, continuity and approval
+- ..distribute work in progress and final versions to clients
+- ..[more](#usecase)
+
+These similarities alone is more than enough to form the foundation of a common pipeline, and that's precisely what Avalon does.
+
+[^1]: Industries such as film, tv, and games
+[^2]: Examples of organisations include Fido, MPC, Double Negative, Bläck and Rythm & Hues
+[^3]: Projects such as Gravity for which Framestore spent 1 full year of bespoke development in order to cope with the vast requirements.
+
+<br>
+<br>
+
+### Target Audience
+
+Who's it for, what does it do?
 
 - Animation and Graphic Design
 - Episodic TV and Feature Film
