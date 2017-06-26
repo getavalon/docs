@@ -3,6 +3,7 @@
 
 import sys
 import json
+import time
 import shutil
 import contextlib
 import subprocess
@@ -33,6 +34,16 @@ def on_block(language, block):
     if language == "python":
         return on_python(block)
     return ""
+
+
+def on_page(page):
+    formatted_time = time.strftime("%b %d %Y %H:%M:%S GMT+0", time.gmtime())
+
+    return """\
+<p>{time}</p>
+<br>
+{content}\
+""".format(time=formatted_time)
 
 
 def on_api_members():
@@ -106,11 +117,12 @@ def on_schema(name):
         data["required"] = str(key in schema.get("required", {}))
         definition += row.format(**data)
 
+    root = "https://github.com/getavalon/core/tree/master/avalon/schema"
     link = """\
-<a href="https://github.com/getavalon/core/tree/master/avalon/schema/{name}" title="{name}" class="md-source-file">
+<a href="{root}/{name}" title="{name}" class="md-source-file">
 {name}
 </a>
-""".format(name=name)
+""".format(root=root, name=name)
 
     return os.linesep.join([link, example])
 
@@ -239,6 +251,13 @@ if __name__ == '__main__':
 
     # Parsing can take some time, so write
     # files all in one batch when done
+
     for dst, parsed in results:
+
+        try:
+            os.makedirs(os.path.dirname(dst))
+        except OSError:
+            pass
+
         with open(dst, "w") as f:
             f.write(parsed)

@@ -6,6 +6,10 @@
 
 	This section is for readers unfamiliar with Avalon and assumes no prior knowledge.
 
+!!! error "Beta"
+
+	This documentation is under heavy development as of June 2017
+
 Avalon is a Python framework for the post-production pipeline and targets small (5) to mid-sized (25) groups of people producing film with elements of 3d animation, including those working in the film, tv and games industries.
 
 ## Challenges of a Shared Pipeline
