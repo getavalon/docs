@@ -171,3 +171,25 @@ The `avalon.inventory` module will take into account the name of the parent dire
 <br>
 <br>
 <br>
+
+## Create your second project
+
+Once you've tailored your configuration and inventory to your liking, you can re-use them for future projects.
+
+1. Copy your `.config.toml` and `.inventory.toml` files from your first project.
+2. Run the `--save` command
+
+**For example**
+
+```bash
+$ mkdir mySecondProject
+$ cd mySecondProject
+$ copy ../myProject/.* ./
+$ python -m avalon.inventory --save
+```
+
+The `--init` command is used to write a generic configuration and inventory to your current working directory. If you already have some, it isn't necessary.
+
+<br>
+<br>
+<br>
