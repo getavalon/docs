@@ -224,11 +224,11 @@ A subset must have a least one Version, which is typically immutable.
 
 Finally in each version there is at least one Representation, typically a file or sequence of files.
 
-| Version     | Description
-|:------------|:-----------
-| ma          | Maya rig
-| mov         | Turntable
-| abc         | Still frame of mesh used in rig
+| Representation | Description
+|:---------------|:-----------
+| ma             | Maya rig
+| mov            | Turntable
+| abc            | Still frame of mesh used in rig
 
 Read more about the kinds of objects in [Schemas](#schemas) below.
 
