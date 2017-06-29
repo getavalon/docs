@@ -4,22 +4,97 @@
 
 Avalon reserves the following words for private and public use. Public members are exposed to the user, private ones are internal to the implementation.
 
-|          | Term                | Public | Description         | Example
-|:---------|:--------------------|:-------|:--------------------|:------------------------
-| ![][pro] | `PROJECTS`          | `X`    | Parent of projects  | `m:\f03_projects`
-| ![][pro] | `PROJECT`           | `X`    | Root of information | Gravity, Dr. Strange
-| ![][ast] | `ASSET`             | `X`    | Unit of data        | Ryan, Bicycle, Flower pot
-| ![][ver] | `VERSION`           | `X`    | An ASSET iteration  | v1, v034
-| ![][rep] | `REPRESENTATION`    |        | A data format       | Maya file, pointcache, thumbnail
-| ![][for] | `FORMAT`            |        | A file extension    | `.ma`, `.abc`, `.ico`, `.png`
-| ![][shd] | `FAMILY`            | `X`    | A type of ASSET     | `model`, `rig`, `look`, `animation`
-| ![][usr] | `WORKSPACE`         | `X`    | Private data        | Scenefile for v034 of Ryan
-| ![][usr] | `SILO`              |        | Data repository     | Ryan resides in `assets`, caches in `film`.
-| ![][ver] | `INSTANCE`          |        | Inverse of a file   | `modelDefault_SET`
-| ![][stg] | `STAGE`             |        | Transient data      | Outgoing VERSION from scenefile
-| ![][shd] | `SHARED`            | `X`    | Public data         | v034 of Ryan
-| ![][prd] | `PRODUCER`          |        | Creator of data     | You
-| ![][cns] | `CONSUMER`          |        | User of data        | Me
+#### PROJECTS
+
+| Public | Description         | Example
+|:-------|:--------------------|:-------------
+| `True`    | Parent of projects  | `m:\f03_projects`
+
+
+#### PROJECT
+
+| Public | Description         | Example
+|:-------|:--------------------|:-------------
+| `True`    | Root of information | Gravity, Dr. Strange
+
+#### ASSET
+
+| Public | Description         | Example
+|:-------|:--------------------|:-------------
+| `True`    | Unit of data        | Ryan, Bicycle, Flower pot
+
+#### SUBSET
+
+| Public | Description         | Example
+|:-------|:--------------------|:-------------
+| `True`    | Child of ASSET      | Ryan, Bicycle, Flower pot
+
+#### VERSION
+
+| Public | Description         | Example
+|:-------|:--------------------|:-------------
+| `True`    | A SUBSET iteration  | v1, v034
+
+#### REPRESENTATION
+
+| Public | Description         | Example
+|:-------|:--------------------|:-------------
+|        | A data format       | Maya file, image sequence, thumbnail
+
+#### FORMAT
+
+| Public | Description         | Example
+|:-------|:--------------------|:-------------
+|        | A file extension    | `.ma`, `.abc`, `.ico`, `.png`
+
+#### FAMILY
+
+| Public | Description         | Example
+|:-------|:--------------------|:-------------
+| `True`    | A type of ASSET     | `model`, `rig`, `look`, `animation`
+
+#### SILO
+
+| Public | Description         | Example
+|:-------|:--------------------|:-------------
+|        | Data repository     | Ryan resides in `assets`, caches in `film`.
+
+#### INSTANCE
+
+| Public | Description         | Example
+|:-------|:--------------------|:-------------
+|        | Inverse of a file   | `modelDefault_SET`
+
+#### STAGE
+
+| Public | Description         | Example
+|:-------|:--------------------|:-------------
+|        | Transient data      | Outgoing VERSION from scenefile
+
+#### PUBLIC
+
+| Public | Description         | Example
+|:-------|:--------------------|:-------------
+| `True`    | Public data         | v034 of Ryan
+
+#### PRIVATE
+
+| Public | Description         | Example
+|:-------|:--------------------|:-------------
+| `True`    | Private data        | Scenefile for v034 of Ryan
+
+#### PRODUCER
+
+| Public | Description         | Example
+|:-------|:--------------------|:-------------
+|        | Creator of data     | You
+
+#### CONSUMER
+
+| Public | Description         | Example
+|:-------|:--------------------|:-------------
+|        | User of data        | Me
+
 
 [ver]: https://cloud.githubusercontent.com/assets/2152766/18576835/f6b80574-7bdc-11e6-8237-1227f779815a.png
 [ast]: https://cloud.githubusercontent.com/assets/2152766/18576836/f6ca19e4-7bdc-11e6-9ef8-3614474c58bb.png
