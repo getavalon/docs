@@ -10,7 +10,7 @@ template: home.html
 	<p style="margin: 0">The safe post-production pipeline</p>
 </div>
 
-<a href="howto/" class="button blue">Download</a>
+<a href="guides/#install" class="button blue">Download</a>
 
 <br>
 <br>
