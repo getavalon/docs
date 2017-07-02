@@ -10,10 +10,9 @@ Here you'll find short answers to "How do I..?" types of questions. These how-to
 
 ## Install
 
-The Avalon pipeline operates either as a *server* or *client*, where the installation methods depends on which one you identify yourself as.
+The Avalon pipeline operates either as a *server* or *client*, where the installation method depend on which one you identify yourself as.
 
 - [Demo](#demo)
-- [Artist](#artist)
 - [Studio](#studio)
 
 <br>
@@ -28,8 +27,14 @@ In order to use Avalon, here's what you need.
 - [Git 2.0](https://git-scm.com/download) or above
 - [Python 3.6](https://www.python.org/downloads/) or above
 - [PyQt 5.6](https://www.riverbankcomputing.com/software/pyqt/download5) or above
+- [MongoDB 3.4](https://www.mongodb.com/) or above
+
+!!! note "MongoDB"
+	You can choose to set-up MongoDB locally (difficult) or you can host one for free in the cloud (simple) at https://mlab.com
 
 **Test installations**
+
+Make sure that you are able to successfully type these commands before continuing.
 
 ```bash
 python --version
@@ -38,7 +43,12 @@ python -c "from PyQt5.QtCore import PYQT_VERSION_STR as version;print(version)"
 # 5.9
 git --version
 # git version 2.8.3.windows.1
+mongo --eval "db.version()" --quiet
+# 3.4.4
 ```
+
+!!! note "Remote Access"
+	If you are setting up Avalon in a company with artists working remotely, it is recommended you make the address and port to the database accessible externally, such as via the public internet.
 
 **Download**
 
@@ -56,10 +66,23 @@ git clone https://github.com/getavalon/setup avalon-setup --recursive
 
 If you have just discovered Avalon and would like to take it for a spin, this section is for you.
 
-**Prerequisites**
+**Prerequisities**
 
-- Maya 2015 or above
-- Nuke 11.0 or above
+In addition to the global prerequisities, you'll also need these.
+
+- [Mongo 3.4](https://www.mongodb.com/) or above
+- [Autodesk Maya 2016](https://autodesk.com/maya) or above
+
+**Test installations**
+
+```bash
+mongo --eval "db.version()" --quiet
+# 3.4.4
+mayapy --version
+# Python 2.7.6
+```
+
+Now you are ready to *build* one of the example projects that ship with Avalon.
 
 ```bash
 cd avalon-example/projects/batman
@@ -84,52 +107,9 @@ $
 <br>
 <br>
 
-### Artist
-
-If you are an artist working with a studio remotely, this section is for you.
-
-```bash
-# Commands to get started as an artist
-```
-
-![untitled project](https://cloud.githubusercontent.com/assets/2152766/26095001/00d078c0-3a14-11e7-9b9b-892fd7aec01b.gif)
-
-**Congratulations!**
-
-You are now fully equipped to handle Avalon tasks!
-
-<br>
-<br>
-<br>
-
 ### Studio
 
 If you are setting up Avalon in your studio, this section is for you.
-
-**Prerequisities**
-
-In addition to the global prerequisities, you'll also need these.
-
-- [Docker 17.0](https://www.docker.com/) or above
-- [Mongo 3.4](https://www.mongodb.com/) or above
-
-**Test installations**
-
-```bash
-docker --version
-# Docker version 17.05.0-ce, build 89658be
-mongo --eval "db.version()" --quiet
-# 3.4.4
-```
-
-In Avalon there are two types of data - files, and documents. Files are stored on your file-system whereas documents are stored in a document-database as JSON. In order to read and write data, you will need to install the database software.
-
-- [Database Software](https://www.mongodb.com/download-center#community)
-
-!!! note "Remote Access"
-	If you are setting up Avalon in a company with artists working remotely, it is recommended you make the address and port to the database accessible externally, such as via the public internet.
-
-With the database installed and running, configure your `mb-gui.bat` to point to the address of where it was installed and head to the [Project Inventory API](#project-inventory-api) section below to create your first project.
 
 <br>
 <br>
@@ -174,7 +154,7 @@ The `avalon.inventory` module will take into account the name of the parent dire
 
 ## Create your second project
 
-Once you've tailored your configuration and inventory to your liking, you can re-use them for future projects.
+Once you've tailored the configuration and inventory to your liking, you can re-use them for future projects.
 
 1. Copy your `.config.toml` and `.inventory.toml` files from your first project.
 2. Run the `--save` command
