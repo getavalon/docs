@@ -63,6 +63,7 @@ template: home.html
     <div>
     	<a href="https://gitter.im/getavalon" target="_blank">Gitter</a> <p>|</p>
     	<a href="http://forums.getavalon.io" target="_blank">Forums</a> <p>|</p>
+    	<a href="https://mindbender-studio.github.io/journal" target="_blank">Journal</a> <p>|</p>
     	<a href="https://github.com/getavalon/core/issues" target="_blank">Issue Tracker</a> <p>|</p>
     	<a href="https://github.com/getavalon/core/projects/1" target="_blank">Priority Queue</a>
     </div>
