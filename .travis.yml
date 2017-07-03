@@ -8,10 +8,10 @@ install:
 script:
   - PYTHONPATH=$(pwd)/core python build.py
   - mkdocs build
+  - export ROOT=$(pwd)
 
 before_deploy:
-  - pwd
-  - cd ~/site
+  - cd $ROOT/site
   - touch .nojekyll
 
 deploy:
