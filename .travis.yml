@@ -10,7 +10,8 @@ script:
   - mkdocs build
 
 before_deploy:
-  - cd site
+  - pwd
+  - cd ~/site
   - touch .nojekyll
 
 deploy:
