@@ -29,13 +29,19 @@ In order to use Avalon, here's what you need.
 - [PyQt 5.6](https://www.riverbankcomputing.com/software/pyqt/download5) or above
 - [MongoDB 3.4](https://www.mongodb.com/) or above
 
-!!! note "MongoDB"
-	You can choose to set-up MongoDB locally (difficult) or you can host one for free in the cloud (simple) at https://mlab.com
+!!! tip "Pro Tip"
+	Instead of running MongoDB locally, you can set-up one in the cloud for free at https://mlab.com
 
 **Test installations**
 
 Make sure that you are able to successfully type these commands before continuing.
 
+<div class="tabs">
+  <button class="tab cmd" onclick="setTab(event, 'cmd')"><p>cmd</p><div></div></button>
+  <button class="tab bash " onclick="setTab(event, 'bash')"><p>bash</p><div></div></button>
+</div>
+
+<div class="tab-content cmd" markdown="1">
 ```bash
 python --version
 # Python 3.6.1
@@ -46,17 +52,34 @@ git --version
 mongo --eval "db.version()" --quiet
 # 3.4.4
 ```
+</div>
 
-!!! note "Remote Access"
-	If you are setting up Avalon in a company with artists working remotely, it is recommended you make the address and port to the database accessible externally, such as via the public internet.
+<div class="tab-content bash" markdown="1">
+```bash
+python --version
+# Python 3.6.1
+python -c "from PyQt5.QtCore import PYQT_VERSION_STR as version;print(version)"
+# 5.9
+git --version
+# git version 2.8.3.linux.1
+mongo --eval "db.version()" --quiet
+# 3.4.4
+```
+</div>
 
 **Download**
 
 At this point we are ready to download Avalon, distributed as a single directory with dependencies or references to paths outside of its directory.
 
+<div class="tabs">
+  <button class="tab cmd bash" onclick="setTab(event, 'bash')"><p>Any</p><div></div></button>
+</div>
+<div class="tab-content cmd bash" markdown="1">
+
 ```bash
 git clone https://github.com/getavalon/setup avalon-setup --recursive
 ```
+</div>
 
 <br>
 <br>

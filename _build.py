@@ -1,5 +1,9 @@
-# Generate markdown from markdown template.
-# 2.0.template -> 2.0.md
+"""Generate markdown from template.
+
+This module converts bespoke markdown into markdown compatible with
+the bespoke mkdocs theme developed for Avalon.
+
+"""
 
 import sys
 import json

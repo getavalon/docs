@@ -1,0 +1,1 @@
+docker run -ti --rm -v $(pwd):/workspace -p 8000:8000 avalon/docs

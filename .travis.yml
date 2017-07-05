@@ -6,12 +6,12 @@ install:
   - git clone https://github.com/getavalon/core.git
 
 script:
-  - PYTHONPATH=$(pwd)/core python build.py
+  - PYTHONPATH=$(pwd)/core python _build.py
   - mkdocs build
-  - export ROOT=$(pwd)
+  - export OUTPUT=$(pwd)/site
 
 before_deploy:
-  - cd $ROOT/site
+  - cd $OUTPUT
   - touch .nojekyll
 
 deploy:
