@@ -111,7 +111,7 @@ Avalon is a Python framework for the post-production Pipeline that encourages sa
 	</tr>
 </table>
 
-<a href="introduction/" class="button red">Learn more about Avalon</a>
+<a href="overview/" class="button red">Learn more about Avalon</a>
 
 
 <br>
