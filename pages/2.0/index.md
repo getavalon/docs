@@ -17,7 +17,7 @@ template: home.html
 <br>
 
 <div class="flex-container">
-	<a class="flex-item" href="introduction/">
+	<a class="flex-item" href="overview/">
 		<div class="flex-cutaway">
 			<p>Go to documentation</p>
 		</div>

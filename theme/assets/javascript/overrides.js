@@ -1,6 +1,6 @@
 window.addEventListener("load", function () {
 
-  var OSName = "Windows";
+  var OSName = "cmd";
   if (window.navigator.userAgent.indexOf("Windows")   != -1) OSName = "cmd";
   if (window.navigator.userAgent.indexOf("Mac")  != -1) OSName = "bash";
   if (window.navigator.userAgent.indexOf("X11")  != -1) OSName = "bash";
@@ -33,10 +33,12 @@ window.addEventListener("load", function () {
   }
 }, false );
 
+/* Utility function */
 function hasClass(element, cls) {
     return (' ' + element.className + ' ').indexOf(' ' + cls + ' ') > -1;
 }
 
+/* Called when the user clicks any tabbed element */
 function setTab(event, tabName) {
     var i, tabcontent, tabs;
 
@@ -52,4 +54,23 @@ function setTab(event, tabName) {
         tabs[i].className = tabs[i].className.replace(" active", "");
         tabs[i].className += hasClass(tabs[i], tabName) ? " active" : ""
     }
+}
+
+/* Called when the user clicks a spoiler button */
+function reveal(event, id) {
+  var button = event.currentTarget;
+
+  if (hasClass(button, "revealed")) {
+    button.className = button.className.replace(" revealed", "");
+  } else {
+    button.className += " revealed";
+  }
+
+  var content = document.getElementById(id);
+
+  if (hasClass(content, "hidden")) {
+      content.className = content.className.replace(" hidden", "");
+  } else {
+      content.className += " hidden";
+  }
 }

@@ -17,14 +17,53 @@ h2, h3, h4, h5, strong, .md-typeset td strong, .md-typeset h4 {
     color: #444;
 }
 
+.spoiler.hidden {
+  visibility: hidden;
+  opacity: 0;
+  max-height: 0;
+  padding: 0;
+}
+
+.spoiler {
+  opacity: 1;
+  transition: opacity 0.2s;
+  padding-bottom: 20px;
+}
+
+.spoiler-btn {
+  width: 100%;
+  text-align: left;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.spoiler-btn p {
+  display: inline-block;
+  padding: 0px 10px;
+  font-weight: 500;
+  font-size: 1.28rem;
+  font-family: "Roboto", helvetica
+}
+
+.spoiler-btn i {
+  line-height: 25px;
+  text-align: center;
+  transition: transform 0.1s;
+  display: inline-block;
+}
+
+.spoiler-btn.revealed i {
+  transform: rotate(90deg);
+}
+
 .admonition-title {
-    font-weight: 500;
-    color: #333;
+  font-weight: 500;
+  color: #333;
 }
 
 .md-header-nav__parent {
-    color: rgba(0, 0, 0, .3);
-    font-size: 1.6rem;
+  color: rgba(0, 0, 0, .3);
+  font-size: 1.6rem;
 }
 
 .md-typeset tr {
@@ -401,8 +440,9 @@ img.ornament:before, img.ornament:after {
 }
 
 img.ornament {
+  max-width: 350px;
   float: right;
-  margin-left: 60px;
+  padding-left: 30px;
   margin-bottom: 60px;
   margin: 3.2rem 0 1.6rem;
 }
@@ -495,12 +535,13 @@ img.ornament.shadow {
 }
 
 div.tabs {
-  /*padding-left: 33px;*/
 }
 
 div.tabs button {
+  background: white;
   outline: none;
   cursor: pointer;
+  position: relative;
   color: #b9b9b9;
   border: 1px solid #efefef;
   border-bottom: none;
@@ -513,11 +554,11 @@ div.tabs button {
 
 div.tabs button.active {
   color: #222;
-  background: none;
   position: relative;
 }
 
 .tab-content {
+  background: white;
   display: none;
   padding: 0;
   border: none;
@@ -537,7 +578,7 @@ button.tab p {
   letter-spacing: 0.1rem;
 }
 
-button.tab div {
+button.tab div.tab-gap {
   position: absolute;
   width: 100%;
   height: 3px;
@@ -547,6 +588,11 @@ button.tab div {
   background: #ffffff;
   z-index: 5;
   left: 0;
+  display: none;
+}
+
+button.tab.active div.tab-gap {
+  display: block;
 }
 
 div.tabs button.active p {

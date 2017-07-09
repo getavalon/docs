@@ -10,7 +10,7 @@ This section covers high-level aspects of Avalon in an information-oriented fash
 
 !!! note "Looking for API reference?"
 
-    See the auto-generated documentation for the [Avalon API](https://getavalon.github.io/core).
+    See the [auto-generated documentation](https://getavalon.github.io/core) for the Avalon API
 
 <br>
 <br>
@@ -161,7 +161,7 @@ Wherever data is stored, it is stored as a hierarchy of increasingly granular ob
 
 <br>
 
-![image](https://cloud.githubusercontent.com/assets/2152766/22086121/8c037080-ddd7-11e6-9149-439203c32c6b.png)
+![image](https://user-images.githubusercontent.com/2152766/27992778-99167e3c-6493-11e7-9223-1681ddfe151e.png)
 
 <br>
 
@@ -196,7 +196,7 @@ Inside of MongoDB, data is stored as Collections containing many Documents. In A
 - Version
 - Representation
 
-These form a hierarchy, where each contain the latter. Assets make up the top-level object within a project, and can represent anything from characters, shots to levels and more. They are an abstract repsentation of you typically refer to when working.
+These form a hierarchy, where each contain the latter. Assets make up the top-level object within a project, and can represent anything from characters, shots to levels and more.
 
 | Asset       | Description
 |:------------|:--------------
@@ -205,7 +205,7 @@ These form a hierarchy, where each contain the latter. Assets make up the top-le
 | 1000        | First shot
 | 1200        | Second shot
 
-Subsets is the asset broken down into smaller sets of information, such as a rig or a model. What makes subsets different from the rest is that these are independently versioned.
+Subsets is the asset broken down into smaller sets of information, such as a rig or a model.
 
 | Subset      | Description
 |:------------|:-----------
@@ -222,7 +222,7 @@ A subset must have a least one Version, which is typically immutable.
 | v002        | Fixed whole in mesh
 | v003        | Increased the size of pecs
 
-Finally in each version there is at least one Representation, typically a file or sequence of files.
+Finally, in each version there is at least one Representation; typically a file or sequence of files.
 
 | Representation | Description
 |:---------------|:-----------
@@ -278,9 +278,9 @@ One of many representations of a [Version](#version).
 
 Think of a representation as one way of storing the same set of data on disk. For example, an image may be stored as both PNG and JPEG. Different files, same data. It could also be stored as a description. *"A picture of my computer."* Much less information is ultimately stored, but it is nonetheless the exact same original data in a different (albeit lossy) representation. The image could also be represented by a feeling (warm, mystical) or a spoken word (muah!).
 
-Representation are very powerful and lie at the heart of assets that are more than just a single file.
+Representations are very powerful and lie at the heart of assets that are more than just a single file.
 
-As a practical example, a Look is stored as both an MA scene file and a JSON. The JSON stores the shader relationships, whereas the MA file stores the actual shaers. Same data, different representations.
+As a practical example, a Look is stored as both an MA scene file and a JSON. The JSON stores the shader relationships, whereas the MA file stores the actual shaders. Same data, different representations.
 
 {{schema:representation-2.0.json}}
 
@@ -290,7 +290,7 @@ As a practical example, a Look is stored as both an MA scene file and a JSON. Th
 
 An imported [Version](#version), as yielded from `api.registered_host().ls()`.
 
-{{schema:container-1.0.json}}
+{{schema:container-2.0.json}}
 
 <br>
 <br>
@@ -314,7 +314,7 @@ It could call on `c:\Program Files\Autodesk\Maya2017\bin\maya.exe` directly, but
 
 **Solution**
 
-The [Project Executable API](reference/#project-executable-api) addresses this by splitting the problem it into three independently configurable parts.
+The [Project Executable API](#project-executable-api) addresses this by splitting the problem it into three independently configurable parts.
 
 1. Apps are assumed to be available on your `PATH`, e.g. `maya.sh` or `maya.bat`
 2. Configuration is performed per application in an individual configuration file, e.g. `maya.toml`
@@ -326,7 +326,7 @@ The [Project Executable API](reference/#project-executable-api) addresses this b
 
 ## Library API
 
-Public members of `avalon.api`
+Public members of `avalon.api`. See [API Documentation](https://getavalon.github.io/core) for full details.
 
 {{api:members}}
 
@@ -524,127 +524,155 @@ PYTHONPATH = [
 <br>
 <br>
 
-## Tools
+## Environment Variables
 
-| Name              | Purpose                          | Description
-|:------------------|:---------------------------------|:--------------
-| **creator**            | control what goes out           | Manage how data is outputted from an application.
-| **loader**            | control what goes in             | Keep tabs on where data comes from so as to enable tracking and builds.
-| **manager**           | stay up to date                  | Notification and visualisation of loaded data.
+Avalon uses environment variables extensively. For example, simply running an application involves two layers of information exchange.
 
-<img class="ornament" src="https://cloud.githubusercontent.com/assets/2152766/25314626/a8a3b72e-283f-11e7-90fd-3fa76e75276e.png">
+1. Your shell > Launcher
+1. Launcher > Application
 
-### Creator
+In this documentation, environment variables are UPPERCASE and setting one is similar across all platforms.
 
-Associate content with a family.
+<div class="tabs">
+  <button class="tab cmd" onclick="setTab(event, 'cmd')">
+    <p>cmd</p><div class="tab-gap"></div>
+  </button>
+  <button class="tab bash " onclick="setTab(event, 'bash')">
+    <p>bash</p><div class="tab-gap"></div>
+  </button>
+</div>
 
-The family is what determins how the content is handled throughout your pipeline and tells Pyblish what it should look like when valid.
+<div class="tab-content cmd" markdown="1">
+```bat
+set MY_VARIABLE=value
+```
+</div>
 
-#### API
+<div class="tab-content bash" markdown="1">
+```bash
+export MY_VARIABLE=value
+```
+</div>
 
-The creator respects families registered with Avalon.
+Variables may also be set from within Python, by altering the `os.environ` dictionary.
+
+```python
+import os
+os.environ["MY_VARIABLE"] = "value"
+```
+
+### Avalon Environment
+
+These are all environment variables relevant in some way to Avalon.
+
+{{schema:session-1.0.json}}
+
+<br>
+
+### Inheritance and Persistence
+
+Setting a variable as above only affects the current instance of the process, such as `cmd.exe` and `python`. That's because variables are *inherited*.
+
+Inheritance in this context means that any process launched from a parent process will contain a duplicate of the parent environment, and no change you make to the environment of this child process will affect the parent process.
+
+<div class="tabs">
+  <button class="tab cmd" onclick="setTab(event, 'cmd')">
+    <p>cmd</p><div class="tab-gap"></div>
+  </button>
+  <button class="tab bash " onclick="setTab(event, 'bash')">
+    <p>bash</p><div class="tab-gap"></div>
+  </button>
+</div>
+
+<div class="tab-content cmd" markdown="1">
+```bat
+set MY_VARIABLE=value
+cmd
+echo %MY_VARIABLE%
+:: value
+set CHILD_VARIABLE=1
+echo %CHILD_VARIABLE%
+:: 1
+exit
+echo %CHILD_VARIABLE%
+:: %CHILD_VARIABLE%
+```
+</div>
+
+<div class="tab-content bash" markdown="1">
+```bash
+export MY_VARIABLE=value
+cmd
+echo $MY_VARIABLE
+# value
+export CHILD_VARIABLE=1
+echo $CHILD_VARIALBE
+# 1
+exit
+echo $CHILD_VARIABLE
+# 
+```
+</div>
+
+Notice how `MY_VARIABLE` is available in the child process, but the variable created *within* the child process it *not* accessible from the parent process.
+
+This concept is incredibly powerful and is how Avalon manages the individual environment variables for your projects and applications.
+
+<br>
+
+### PATH
+
+Some environment variables have special meaning to your operating system, `PATH` is one of them. It contains absolute paths from which executables are accessed.
+
+That is, when you type `git` on the command-line, your operating system performs a search in each of the paths listed in `PATH` until it finds it.
+
+If you wanted to expose an executable of your own, you can add the directory containing the executable to the `PATH`.
+
+<br>
+
+### PYTHONPATH
+
+Like `PATH`, `PYTHONPATH` is where Python looks for files during `import`.
+
+<br>
+<br>
+<br>
+
+## Events
+
+Attach callbacks to critical events throughout the use of Avalon.
 
 ```python
 from avalon import api
 
-api.register_family(
-    name="my.family",
-    help="My custom family",
-)
+def on_event():
+    print("An event happened")
+
+api.on("event", on_event)
+api.emit("event")
 ```
 
-For each family, a **common set of data** is automatically associated with the resulting instance.
+Some events are called by Avalon.
 
-```json
-{
-    "id": "pyblish.avalon.instance",
-    "family": "{chosen family}",
-    "name": "{chosen name}"
-}
-```
-
-**Additional common** data can be added.
-
-```python
-from avalon import api
-
-api.register_data(
-    key="myKey",
-    value="My value",
-    help="A special key"
-)
-```
-
-Data may be **associated** with a family.
-
-```python
-from avalon import api
-
-api.register_family(
-    name="my.family",
-    data=[
-        {"key": "name", "value": "marcus", "help": "Your name"},
-        {"key": "age", "value": 30, "help": "Your age"},
-])
-```
+- `init` Called as early as possible during the initialisation of an application.
+- `new` Called upon the creation of a new document/scene
+- `save` Called upon saving a document/scene
 
 <br>
 <br>
 
-<img class="ornament" src="https://cloud.githubusercontent.com/assets/2152766/25314676/6405898e-2840-11e7-9a09-3a193d6eaf1f.png">
+### Custom Events
 
-### Loader
-
-Visualise results from `api.ls()`.
+Aside from the built-in events, you can emit your own events too.
 
 ```python
 from avalon import api
 
-for asset in api.ls():
-    print(asset["name"])
+def create_alembic():
+    # Creating alembic..
+    api.emit("alembic_created")
 ```
-
-#### API
-
-The results from `api.ls()` depends on the currently **registered root**.
-
-```python
-from avalon import api
-api.register_root("/projects/gravity")
-```
-
-The chosen `ASSET` is passed to the `load()` function of the currently registered host.
-
-```python
-from avalon import api, maya
-api.register_host(maya)
-```
-
-A host is automatically registered on `api.install()`.
 
 <br>
 <br>
-
-<img class="ornament" src="https://cloud.githubusercontent.com/assets/2152766/25314689/8b80cc58-2840-11e7-9bee-a97a40fa830d.png">
-
-### Manager
-
-Visualise loaded assets.
-
-```python
-from avalon import maya
-
-for container in maya.ls():
-    print(container["name"])
-
-# The same is true for any host; houdini, nuke etc.
-```
-
-#### API
-
-The results from `ls()` depends on the currently registered host, such as Maya.
-
-```python
-from avalon import nuke
-api.register_host(nuke)
-```
+<br>

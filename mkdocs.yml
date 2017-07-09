@@ -18,15 +18,17 @@ pages:
     - " ": 1.0/index.md
   - "2.0":
     - " ": 2.0/index.md
-    - Introduction: 2.0/introduction.md
-    # - Overview: 2.0/overview.md
+    # - Introduction: 2.0/introduction.md
+    - Overview: 2.0/overview.md
     - Guides: 2.0/guides.md
     - Tutorials: 2.0/tutorials.md
     - Reference: 2.0/reference.md
+    - Tools: 2.0/tools.md
     - Glossary: 2.0/glossary.md
   - Polly:
     - Home: polly/index.md
     - Assets: polly/assets.md
+    - Tutorials: polly/tutorials.md
   - Colorbleed:
     - Home: colorbleed/index.md
 
