@@ -25,7 +25,7 @@ def tempfile(name):
 
 
 def on_template(template):
-    definition = template[2:-3]
+    definition = template.strip("{{").rstrip().rstrip("}}")
     key, value = definition.split(":")
     if key == "schema":
         return on_schema(value)
@@ -79,6 +79,15 @@ def on_schema(name):
     from avalon import schema
     schema = schema._cache[name]
 
+    description = """\
+```json
+{dump}
+```
+""".format(dump=json.dumps({
+        key: value.get("description", "")
+        for key, value in schema["properties"].items()
+    }, indent=4, sort_keys=True))
+
     example = """\
 **Example**
 
@@ -93,10 +102,10 @@ def on_schema(name):
     definition = """\
 **Definition**
 
-| Key | Value | Required? | Description
-|:----|:------|:----------|:------------
+| Key | Description
+|:----|:------------
 """
-    row = "| `{key}` | `{type}` | `{required}` | {description}\n"
+    row = "| `{key}` | {description}\n"
 
     for key, data in schema["properties"].items():
         if "requires" in schema and key not in schema["requires"]:
@@ -128,7 +137,7 @@ def on_schema(name):
 </a>
 """.format(root=root, name=name)
 
-    return os.linesep.join([link, example])
+    return os.linesep.join([link, description, example])
 
 
 def on_python(block):

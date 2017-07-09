@@ -14,9 +14,15 @@ import subprocess
 os.chdir(os.path.dirname(os.path.abspath(__file__)))
 
 watch = importlib.import_module("_watch")
-thread = threading.Thread(target=watch.run)
+thread = threading.Thread(target=watch.start)
 thread.daemon = True
 thread.start()
 
 # Block
-subprocess.call(["mkdocs", "serve", "-a", "0.0.0.0:8000"])
+try:
+    subprocess.call(["mkdocs", "serve", "-a", "0.0.0.0:8000"])
+except KeyboardInterrupt:
+    watch.stop()
+
+thread.join(5)
+print("_serve.py: Good bye")

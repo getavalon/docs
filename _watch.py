@@ -16,6 +16,7 @@ from watchdog.observers import polling
 
 module = sys.modules[__name__]
 module.previous_time = time.time()
+module.observer = None
 
 
 class TemplateHandler(events.FileSystemEventHandler):
@@ -33,7 +34,7 @@ class TemplateHandler(events.FileSystemEventHandler):
         module.previous_time = time.time()
 
 
-def run():
+def start(standalone=True):
     logging.basicConfig(level=logging.INFO,
                         format='%(asctime)s - %(message)s',
                         datefmt='%Y-%m-%d %H:%M:%S')
@@ -44,18 +45,20 @@ def run():
     observer.schedule(event_handler, path, recursive=True)
     observer.start()
 
-    print("Watching %s.." % path)
+    # Keep reference for external control
+    module.observer = observer
 
-    try:
-        while True:
-            time.sleep(1)
-    except KeyboardInterrupt:
-        observer.stop()
+    print("_watch.py: Watching %s.." % path)
 
     observer.join()
 
-    print("Good bye")
+    print("_watch.py: Good bye")
+
+
+def stop():
+    print("_watch.py: Stopping..")
+    module.observer.stop()
 
 
 if __name__ == "__main__":
-    run()
+    start()

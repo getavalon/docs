@@ -11,9 +11,9 @@ RUN wget https://bootstrap.pypa.io/get-pip.py && \
 # Avoid creation of auxilliary files
 ENV PYTHONDONTWRITEBYTECODE=1
 
+ENV PYTHONPATH=$PYTHONPATH:/pythonpath
 WORKDIR /workspace
 
 EXPOSE 8000
 
-ENTRYPOINT git clone https://github.com/getavalon/core.git /tmp/git \
-		   && PYTHONPATH=/tmp/git:$PYTHONPATH mayapy -u _serve.py
+ENTRYPOINT mayapy -u _serve.py
