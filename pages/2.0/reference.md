@@ -175,6 +175,10 @@ Representations are the storage method of a version, such as a .png thumbnail, a
 
 Each object containing a series of members defined by an explicit schema, enforced via [jsonschema](http://json-schema.org/) and organised hierarchically with the former containing the latter.
 
+**Read more**
+
+- Read about schemas in the [Database section](#database) below.
+
 ### Metadata
 
 Every object in the model contains a dictionary member called `.data`.
@@ -182,10 +186,6 @@ Every object in the model contains a dictionary member called `.data`.
 The conceptual difference between top-level members and members of `.data` is that top-level members can be assumed to exist in every application, whereas members of `.data` are optional. 
 
 Optional members facilitate flexible code at the cost of having more of it and therefore more to maintain.
-
-**Read more**
-
-- Read about schemas in the [Database section](#database) below.
 
 <br>
 <br>
