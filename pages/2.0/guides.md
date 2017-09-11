@@ -10,7 +10,7 @@ Here you'll find short answers to "How do I..?" types of questions. These how-to
 
 ## Install
 
-The Avalon pipeline operates either as a *server* or *client*. If you've just discovered Avalon and owuld like to take it for a spin, check out the [Demo](#demo) section. Remote artists should head on to the [Client](#client) section, and finally [Server](#server) is for permanently setting up Avalon in your studio.
+The Avalon pipeline operates either as a *server* or *client*. If you've just discovered Avalon and would like to take it for a spin, check out the [Demo](#demo) section. Remote artists should head on to the [Client](#client) section, and finally [Server](#server) is for permanently setting up Avalon in your studio.
 
 - [Demo](#demo)
 - [Server](#server)
