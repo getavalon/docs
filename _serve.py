@@ -6,6 +6,7 @@ to :module:`_watch.py` which keeps an eye on changes to templates.
 """
 
 import os
+import shutil
 import threading
 import importlib
 import subprocess
@@ -17,6 +18,11 @@ watch = importlib.import_module("_watch")
 thread = threading.Thread(target=watch.start)
 thread.daemon = True
 thread.start()
+
+# Prepare build directory
+if not os.path.exists("build"):
+    print("Preparing..")
+    shutil.copytree("pages", "build")
 
 # Block
 try:

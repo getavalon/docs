@@ -3,6 +3,8 @@
 Project documentation, automatically tested and deployed to [getavalon.github.io](https://getavalon.github.io)
 
 ```bash
+$ cd docs
+$ export AVALON_CORE=/path/to/avalon-core
 $ . build_docker.sh
 $ . serve_docker.sh
 ```
