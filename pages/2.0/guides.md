@@ -47,7 +47,7 @@ In order to use Avalon, here's what you need.
 - [Git 2.0](https://git-scm.com/download) or above
 - [Python 3.6](https://www.python.org/downloads/) or above
 - [PyQt 5.7](https://www.riverbankcomputing.com/software/pyqt/download5) or above
-- [MongoDB 3.4](https://www.mongodb.com/download-center#community) or above
+- [MongoDB 3.4 Community Server](https://www.mongodb.com/download-center#community) or above
 
 #### Test installations
 
