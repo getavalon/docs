@@ -17,6 +17,7 @@ before_deploy:
 deploy:
   - provider: pages
     skip_cleanup: true
+    local-dir: build
     github_token: $GITHUB_TOKEN
     repo: getavalon/getavalon.github.io
     target_branch: master
@@ -24,6 +25,7 @@ deploy:
   # Backwards compatibility
   - provider: pages
     skip_cleanup: true
+    local-dir: build
     github_token: $GITHUB_TOKEN
     repo: mindbender-studio/mindbender-studio.github.io
     target_branch: master
