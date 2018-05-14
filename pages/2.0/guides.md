@@ -182,7 +182,7 @@ In order to make this command available permanently, you can add it to your syst
 
 <div class="tab-content cmd" markdown="1">
 ```bat
-setx PATH=%cd%\avalon-setup;%PATH%
+setx PATH "%cd%\avalon-setup;%PATH%"
 ```
 </div>
 
