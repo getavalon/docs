@@ -46,8 +46,15 @@ In order to use Avalon, here's what you need.
 - Windows, Linux or OSX
 - [Git 2.0](https://git-scm.com/download) or above
 - [Python 3.6](https://www.python.org/downloads/) or above
-- [PyQt 5.7](https://www.riverbankcomputing.com/software/pyqt/download5) or above
-- [MongoDB 3.4 Community Server](https://www.mongodb.com/download-center#community) or above
+- [MongoDB Community Server 3.4](https://www.mongodb.com/download-center#community) or above
+
+Ensure you have PyQt5 installed.
+
+```bash
+pip install PyQt5==5.7.1
+```
+
+Avalon may run with newer version of PyQt5, but if you encounter any issues, please revert to this exact version.
 
 #### Test installations
 
@@ -71,7 +78,7 @@ rem 5.9
 git --version
 rem git version 2.8.3.windows.1
 mongo --eval "db.version()" --quiet
-rem 3.4.4
+rem 3.6.4
 ```
 
 <button class="spoiler-btn" onclick="reveal(event, 'cmd-mongotrouble')">
@@ -79,10 +86,11 @@ rem 3.4.4
 </button>
 <div id="cmd-mongotrouble" class="spoiler hidden" markdown="1">
 
-If `'mongo' is not recognized as an internal or external command`, then try finding its installation directory and call it directly.
+If `'mongo' is not recognized as an internal or external command`, add it to your PATH and try again.
 
 ```bat
-"c:\Program Files\MongoDB\Server\3.6\bin\mongo.exe" --eval "db.version()" --quiet
+set PATH=C:\Program Files\MongoDB\Server\3.6\bin;%PATH%
+setx PATH "C:\Program Files\MongoDB\Server\3.6\bin;%PATH%"
 ```
 
 If `mongo` is reporting connectivity problems, try creating the default storage directory and starting the MongoDB server, `mongod.exe`.
