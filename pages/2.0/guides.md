@@ -79,11 +79,17 @@ rem 3.4.4
 </button>
 <div id="cmd-mongotrouble" class="spoiler hidden" markdown="1">
 
+If `'mongo' is not recognized as an internal or external command`, then try finding its installation directory and call it directly.
+
+```bat
+"c:\Program Files\MongoDB\Server\3.6\bin\mongo.exe" --eval "db.version()" --quiet
+```
+
 If `mongo` is reporting connectivity problems, try creating the default storage directory and starting the MongoDB server, `mongod.exe`.
 
 ```bat
 mkdir c:\data\db
-start "MongoDB" "c:\Program Files\MongoDB\Server\3.4\bin\mongod.exe"
+start "MongoDB" "c:\Program Files\MongoDB\Server\3.6\bin\mongod.exe"
 ```
 
 - See [Install MongoDB Community Edition on Windows](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-windows/) for details.
