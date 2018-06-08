@@ -81,91 +81,20 @@ The `--init` command is used to write a generic configuration and inventory to y
 <br>
 <br>
 
-## List your projects
-
-Knowing what projects are in the database can be tricky to remember, so instead you can list them.
-
-<div class="tabs">
-  <button class="tab cmd" onclick="setTab(event, 'cmd')">
-  	<p>cmd</p><div class="tab-gap"></div>
-  </button>
-  <button class="tab bash " onclick="setTab(event, 'bash')">
-  	<p>bash</p><div class="tab-gap"></div>
-  </button>
-</div>
-
-<div class="tab-content cmd bash" markdown="1">
-```bash
-avalon --ls
-```
-</div>
-
-<br>
-<br>
-<br>
-
-## Load your projects
-
-There are two ways of specifying which project to load:
-
- 1. Name of the current working directory.
-
- <div class="tabs">
-   <button class="tab cmd" onclick="setTab(event, 'cmd')">
-   	<p>cmd</p><div class="tab-gap"></div>
-   </button>
-   <button class="tab bash " onclick="setTab(event, 'bash')">
-   	<p>bash</p><div class="tab-gap"></div>
-   </button>
- </div>
-
- <div class="tab-content cmd bash" markdown="1">
- ```bash
- mkdir projects
- cd projects
- mkdir myProject
- cd myProject
- avalon --load
- ```
- </div>
-
- <br>
- <br>
- <br>
-
- 2. Specify the name when loading a project.
-
- <div class="tabs">
-   <button class="tab cmd" onclick="setTab(event, 'cmd')">
-    <p>cmd</p><div class="tab-gap"></div>
-   </button>
-   <button class="tab bash " onclick="setTab(event, 'bash')">
-    <p>bash</p><div class="tab-gap"></div>
-   </button>
- </div>
-
- <div class="tab-content cmd bash" markdown="1">
- ```bash
- mkdir projects
- cd projects
- mkdir customProjectName
- cd customProjectName
- avalon --load myProject
- ```
- </div>
-
- <br>
- <br>
- <br>
-
-
 ## Create your first asset
 
 With a project up and running, how do you actually go about creating assets?
 
-The creation of assets are done by editing the ```inventory.toml```. Here is an example asset:
+```bash
+cd myproject
+avalon --load
+# Edit .inventory.toml
+avalon --save
+```
 
-```toml
+With `--load`, the `.inventory.toml` is written to your current working directory, ready for you to edit. Here's an example entry into the `.inventory.toml`.
+
+```ini
 [[assets]]
 name = "Batman"
 label = "The Batman"  # (Optional) Nicer name
@@ -173,7 +102,15 @@ group = "Character"  # (Optional) Visual grouping
 icon = "gear"  # (Optional) Icon from FontAwesome
 ```
 
-Once you have edited ```inventory.toml``` and saved to disk, you can save the changes to the database with ```avalon --save```.
+With the changes saved, you'll find the new asset in the Launcher.
+
+!!! hint "Load project by name"
+
+    Normally, the project name is derived from the current working directory. You may also pass a project name to the `--load` argument, e.g. `--load myproject`
+
+!!! hint "List available projects"
+
+    When loading a project for the first time, you can list available in the Avalon database via `avalon --ls`
 
 <br>
 <br>
