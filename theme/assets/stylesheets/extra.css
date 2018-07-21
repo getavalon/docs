@@ -385,6 +385,22 @@ img {
   background: #4BA4DE;
 }
 
+.green {
+  box-shadow: 0px 6px #7CAA19;
+  background: #A5D63C;
+}
+
+.green:active {
+  box-shadow: 0px 0px #98C733;
+  background: #B2E14D;
+}
+
+.green:hover {
+  background: #D5F295;
+  position: relative;
+}
+
+
 .md-typeset hr {
     border-bottom: .1rem solid rgba(0, 0, 0, 0.05);
 }
@@ -466,12 +482,21 @@ img.ornament.shadow {
 */
 
 @media only screen and (max-width: 60em) {
+  .desktop {
+    display: none;
+  }
+
   img {
     max-width: 100%;
   }
+
 }
 
 @media only screen and (min-width: 60em) {
+  .mobile {
+    display: none;
+  }
+
   .md-nav {
       font-size: inherit;
       line-height: 1.3;

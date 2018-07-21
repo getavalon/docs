@@ -10,6 +10,7 @@ template: home.html
 	<p style="margin: 0">The safe post-production pipeline</p>
 </div>
 
+<div class="desktop">
 <a href="guides/#install" class="button blue">Download</a>
 
 <br>
@@ -112,7 +113,15 @@ Avalon is a Python framework for the post-production Pipeline that encourages sa
 </table>
 
 <a href="overview/" class="button red">Learn more about Avalon</a>
+</div>
 
+<div class="mobile">
+
+<a href="overview/" class="button blue">Learn more</a>
+<a href="https://getavalon.github.io/core/" class="button red">Go to API Reference</a>
+<a href="https://github.com/getavalon/core" class="button green">Go to GitHub</a>
+
+</div>
 
 <br>
 <br>
