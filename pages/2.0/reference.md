@@ -529,6 +529,131 @@ PYTHONPATH = [
 ```
 
 <br>
+
+## Project Template API
+
+The vast majority of data managed by Avalon is stored as files on disk, and every file has a path. The path is an integral part of any production and requires fine-grained control.
+
+Avalon provides this control in the form of `templates`.
+
+A template is a string of `{placeholders}`, each placeholder representing some data.
+
+```python
+template = "{project}/{asset}/myfile_v{version:0>3}.ma"
+```
+
+The keywords within the `{}` are known as `placeholders` and may be dynamically replaced at run-time by your code.
+
+**Example**
+
+On saving a file, this template could be used to construct a path.
+
+```python
+template = "{project}/{asset}/myfile_{version:0>3}.ma"
+fname = template.format(
+    project="hulk",
+    asset="bruce",
+    version=13
+)
+print(fname)
+```
+
+Provided that pass the same data, the template itself can vary, whilst leaving your code intact.
+
+```python
+template = "c:/assets/{asset}/{project}/myfile_version{version:0>2}.mb"
+```
+
+Viola, a drastically different directory layout, with identical data and code to process it. Notice how this templates includes reference to `c:\` which not only asserts a particular operating system (Windows) but also leaves no room for an alternative "root". See [Root Template](#root-template) below for an example of how to overcome this limitation.
+
+This is how Avalon works.
+
+In this way, you can establish *convention* at a high-level whilst still remaning *specific* in places where you need to either read from or write to disk. More importantly, this is the aspect which allows Avalon to not make assumptions about your directory layout; it is up to you to write this template.
+
+Having said that, though Avalon doesn't make assumptions about *where* data is written, it *does* make assumptions on the types of data written - referred to as the Avalon Object Model - and your directory layout must accommodate for these types at minimum.
+
+- See [Object Model](#object-model) for a high-level overview of these types
+
+For any project, Avalon assumes a `work` template to be available in your [Project Configuration](#project-configuration-api). This template is used to generate the initial directory layout for your work-in-progress files.
+
+The layout and ordering of placeholders in this template is within your control, and these are the ones available to you.
+
+```json
+{
+    "root": "Currently registered root, e.g. 'c:/projects'",
+    "project": "Current project, e.g. 'hulk'",
+    "silo": "Current silo, e.g. 'assets', 'film', 'episodes'",
+    "asset": "Current asset, e.g. 'Bruce'",
+    "task": "Current task",
+    "app": "Current app, e.g. 'maya2019'",
+    "user": "Current user, e.g. 'rick'"
+}
+```
+
+Here's an example of a `work` template.
+
+```python
+template = "{root}/{project}/{silo}/{asset}/work/{task}/{user}/{app}"
+```
+
+- See [Project Configuration API](#project-configuration-api) for more.
+
+### Template Access
+
+Templates are generally stored in your [project configuration](#project-configuration-api).
+
+```python
+# Untested
+from avalon import io
+project = io.find_one({"type": "project"})
+template = project["config"]["template"]["work"]
+```
+
+### Root Template
+
+Every path has a "root"; the first part of a path.
+
+```
+c:\
+/root
+/projects/
+```
+
+When a template includes a root explicitly, like any of the above, then a template is limited to (1) a particular platform and (2) a particular mount on that platform.
+
+For example, if your studio is exclusively on Windows and all share the drive `z:\`, then it is safe to embed this into your template.
+
+```python
+template = "z:/projects/{project}/{asset}/..."
+```
+
+However, when there are multiple operating systems and/or multiple mount points - e.g. `z:\` on some machines and and `x:\` on others - then the above template no longer works.
+
+To work around this, Avalon provides the idea of a "root" directory.
+
+```python
+# Windows box, from our London branch
+from avalon import api
+api.register_root(r"c:\projects")
+```
+
+At run-time, a root directory is registered relative your platform and mount point, such that your template can look like..
+
+```python
+template = "{root}/{project}{asset}..."
+```
+
+Such that, on another platform or machine, the root registration can change to account for a differing root.
+
+```python
+# Linux box, in LA
+from avalon import api
+api.register_root("/mnt/projects")
+```
+
+As a result, your folder creation and publishing code can remain as-is, whilst assets are being read and written all over the place.
+
+<br>
 <br>
 <br>
 

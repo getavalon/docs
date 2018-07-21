@@ -36,6 +36,9 @@ def on_template(template):
 
 def on_block(language, block):
     if language == "python":
+        if block[0].startswith("# Untested"):
+            return "```python\n%s```" % "".join(block)
+
         return on_python(block)
     return ""
 
