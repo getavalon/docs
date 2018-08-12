@@ -145,3 +145,15 @@ for container in maya.ls():
 <br>
 <br>
 <br>
+
+<img class="ornament" max-width="300px" src="https://user-images.githubusercontent.com/1860085/43656045-548415bc-9751-11e8-9f7c-4fec8a77831a.gif">
+
+### Workfiles
+
+Manage your workfiles.
+
+[Documentation](https://github.com/getavalon/core/blob/master/avalon/tools/workfiles/README.md)
+
+<br>
+<br>
+<br>
