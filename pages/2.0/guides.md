@@ -10,11 +10,7 @@ Here you'll find short answers to "How do I..?" types of questions. These how-to
 
 ## Install
 
-The Avalon pipeline operates either as a *server* or *client*. If you've just discovered Avalon and would like to take it for a spin, keep reading until you get to the [Server](#server) section. Remote artists should read till the [Client](#client) section, and finally [Server](#server) is for permanently setting up Avalon in your studio.
-
-- [Demo](#demo)
-- [Server](#server)
-- [Client](#client)
+Let's get cooking!
 
 !!! hint "Reading Code"
 
@@ -254,28 +250,6 @@ In this project, you'll find a number of assets, including a character - `Bruce`
 Go ahead and open up Maya and load a few assets!
 
 <br>
-<br>
-<br>
-
-### Server
-
-If you are setting up Avalon in your studio, this section is for you.
-
-```bash
-todo
-```
-
-<br>
-<br>
-
-### Client
-
-Artists connecting to Avalon from a remote location typically do so given the specific configuration of Avalon into a particular pipeline.
-
-Avalon ships with a default configuration for your reference.
-
-- See [Default Configuration](/polly/#install) for details.
-
 <br>
 <br>
 
