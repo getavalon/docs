@@ -2,12 +2,52 @@
 
 Project documentation, automatically tested and deployed to [getavalon.github.io](https://getavalon.github.io)
 
+**Prerequisites**
+
+Documentation requires Windows, Linux or Mac with `docker` and a version of `core`.
+
 ```bash
-$ cd docs
-$ export AVALON_CORE=/path/to/avalon-core
-$ . build_docker.sh
-$ . serve_docker.sh
+$ git clone https://github.com/getavalon/core avalon-core
+$ set AVALON_CORE=%cd%\avalon-core  # cmd
+$ $env:AVALON_CORE="$(pwd)\avalon-core"  # powershell
+$ export AVALON_CORE=$(pwd)/avalon-core  # bash
 ```
+
+Set the environment variable using your shell of choice, either `cmd,` `powershell` or `bash`.
+
+**Usage**
+
+Now build and run the image
+
+```bash
+$ git clone https://github.com/getavalon/docs avalon-docs
+$ cd avalon-docs
+$ ./build_docker
+Sending build context to Docker daemon  16.81MB
+Step 1/9 : FROM mottosso/maya:2016sp1
+2016sp1: Pulling from mottosso/maya
+f402e43879a8: Pull complete
+d62c664230cf: Downloading [========================>                          ]  133.3MB/272.4MB
+ef05875d9e72: Download complete
+95620efb6266: Download complete
+459d317a8b3e: Downloading [=========>                                         ]  127.8MB/689.4MB
+3eb7d8a11585: Download complete                                                                                         
+$ ./serve_docker
+_watch.py: Watching /workspace/pages..
+INFO    -  Building documentation...
+INFO    -  Cleaning site directory
+[I 190618 16:06:30 server:296] Serving on http://0.0.0.0:8000
+[I 190618 16:06:30 handlers:62] Start watching changes
+[I 190618 16:06:30 handlers:64] Start detecting changes
+[I 190618 16:07:27 handlers:135] Browser Connected: http://localhost:8000/2.0/guides/
+```
+
+Now visit http://localhost:8000 to view the resulting documentation. Any changes you make to the [pages](https://github.com/getavalon/docs/tree/master/pages/2.0) markdown files are reflected in this location in real-time. For each edit, here's what happens.
+
+1. Each markdown page in `pages/` is built into `build/`
+1. Each markdown page in `build/` is converted into HTML into `site/`
+1. Any code snippets are executed and their results are included into the built markdown
+1. Any references, such as to schemas, are read and converted into markdown
 
 <br>
 
