@@ -68,6 +68,7 @@ template: home.html
     	<a href="https://github.com/getavalon/core/issues" target="_blank">Issue Tracker</a> <p>|</p>
     </div>
 </div>
+</div>
 
 <br>
 
