@@ -1,7 +1,7 @@
 Tornado>=4.0.0,<5.0.0
 mkdocs==0.16.3
-pymdown-extensions==3.5
+pymdown-extensions==6.0
 pymongo==3.4.0
-Pygments==2.2.0
+Pygments==2.4.2
 pyblish-base==1.4.4
-watchdog==0.8.3
+watchdog==0.9.0
