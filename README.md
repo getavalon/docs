@@ -1,14 +1,27 @@
-# Avalon Documentation
+### Avalon Documentation
 
-Project documentation, automatically tested and deployed to [getavalon.github.io](https://getavalon.github.io)
+[![Build Status](https://travis-ci.org/getavalon/docs.svg?branch=master)](https://travis-ci.org/getavalon/docs)
+
+Project documentation for [avalon](https://github.com/getavalon/core), automatically tested and deployed to [getavalon.github.io](https://getavalon.github.io).
+
+<br>
+
+### Contributing
+
+If you find anything wrong with this documentation, you are invited to improve upon it and here's how you can do that.
 
 **Prerequisites**
 
-Documentation requires Windows, Linux or Mac with `docker` and a version of `core`.
+Making changes or additions to Avalon's documentation can come in 1 of 2 forms.
+
+1. Make a change to any page under [pages/](https://github.com/getavalon/docs/tree/master/pages/2.0), and submit a pull-request (PR)
+2. Edit and preview each change interactively on your local machine, and then submit a pull-request.
+
+Previewing the documenation prior to submitting a PR is preferred, as it would enable you to actually see what you're doing prior to submitting it for review; this works on a Windows, Mac or Linux, with Docker available.
 
 ```bash
 $ git clone https://github.com/getavalon/core avalon-core
-$ set AVALON_CORE=%cd%\avalon-core  # cmd
+$ set AVALON_CORE=%cd%\avalon-core       # cmd
 $ $env:AVALON_CORE="$(pwd)\avalon-core"  # powershell
 $ export AVALON_CORE=$(pwd)/avalon-core  # bash
 ```
@@ -17,12 +30,12 @@ Set the environment variable using your shell of choice, either `cmd,` `powershe
 
 **Usage**
 
-Now build and run the image
+Next we'll build and run the image. This will host the documentation locally, via [mkdocs](https://github.com/mkdocs/mkdocs), and monitor changes you make to any markdown page. Once you've run it, you'll notice a new directory having been created called `build/`. This is what `mkdocs` sees and previews for you, it is the result of pre-processing (see below for what exactly it is doing and why).
 
 ```bash
 $ git clone https://github.com/getavalon/docs avalon-docs
 $ cd avalon-docs
-$ ./build_docker
+$ .\build_docker
 Sending build context to Docker daemon  16.81MB
 Step 1/9 : FROM mottosso/maya:2016sp1
 2016sp1: Pulling from mottosso/maya
@@ -32,7 +45,7 @@ ef05875d9e72: Download complete
 95620efb6266: Download complete
 459d317a8b3e: Downloading [=========>                                         ]  127.8MB/689.4MB
 3eb7d8a11585: Download complete                                                                                         
-$ ./serve_docker
+$ .\serve_docker
 _watch.py: Watching /workspace/pages..
 INFO    -  Building documentation...
 INFO    -  Cleaning site directory
