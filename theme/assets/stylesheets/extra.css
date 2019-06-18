@@ -165,6 +165,12 @@ label.md-nav__title {
   max-height: 110px;
 }
 
+.md-typeset .codehilite {
+  background: transparent;
+  border: 1px solid #eee;
+  margin-top: 0;
+}
+
 .md-typeset > .codehilitetable.output {
   background: #f7f7f7;
   margin-top: -1px;
