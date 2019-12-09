@@ -149,30 +149,13 @@ git clone https://github.com/getavalon/setup avalon-setup --recursive
 ```
 </div>
 
-Then we need to make sure we pull in the latest updates:
+!!! hint "Updating Avalon"
 
-<div class="tabs">
-  <button class="tab cmd" onclick="setTab(event, 'cmd')">
-  	<p>cmd</p><div class="tab-gap"></div>
-  </button>
-  <button class="tab bash " onclick="setTab(event, 'bash')">
-  	<p>bash</p><div class="tab-gap"></div>
-  </button>
-</div>
+	Downloading `avalon-setup` like above does not automatically pull in the latest versions.
 
-<div class="tab-content cmd" markdown="1">
-```bat
-cd avalon-setup
-git submodule update --recursive --remote
-```
-</div>
+	See [Update](#update) to learn how to update including all its submodules.
 
-<div class="tab-content bash" markdown="1">
-```bash
-cd avalon-setup
-git submodule update --recursive --remote
-```
-</div>
+<br>
 
 #### Command-line Interface
 
