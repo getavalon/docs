@@ -47,7 +47,7 @@ In order to use Avalon, here's what you need.
 Ensure you have PyQt5 installed.
 
 ```bash
-pip install PyQt5==5.7.1
+pip install PyQt5==5.12
 ```
 
 Avalon may run with newer version of PyQt5, but if you encounter any issues, please revert to this exact version.
