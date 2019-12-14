@@ -140,20 +140,22 @@ At this point we are ready to download Avalon, distributed as a single directory
 <div class="tab-content cmd" markdown="1">
 ```bat
 git clone https://github.com/getavalon/setup avalon-setup --recursive
+cd avalon-setup
+git submodule update --recursive --remote
 ```
 </div>
 
 <div class="tab-content bash" markdown="1">
 ```bash
 git clone https://github.com/getavalon/setup avalon-setup --recursive
+cd avalon-setup
+git submodule update --recursive --remote
 ```
 </div>
 
 !!! hint "Updating Avalon"
 
-	Downloading `avalon-setup` like above does not automatically pull in the latest versions.
-
-	See [Update](#update) to learn how to update including all its submodules.
+	See [Update](#update) to learn how to update including all its submodules at a later date.
 
 <br>
 
