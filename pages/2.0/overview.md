@@ -54,4 +54,8 @@ It overlaps into people management by hooking into tasks supplied via production
 - [Submarine](https://www.submarine.nl/)
 - [Job, Joris en Marieke](https://www.jobjorisenmarieke.nl/)
 
+!!! hint "Missing your name?"
+
+    Missing your name? Let us know on [Avalon Gitter](https://gitter.im/getavalon/Lobby) or set up a PR to [`getavalon/docs`](https://github.com/getavalon/docs).
+
 <br>
