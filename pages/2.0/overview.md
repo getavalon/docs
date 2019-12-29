@@ -2,7 +2,7 @@
 
 # Home
 
-Avalon is an end-to-end, free and open source data pipeline powering [Mindbender](http://mindbender.com) and [Colorbleed](http://colorbleed.nl) during the production of computer generated imagery.
+Avalon is an end-to-end, free and open source data pipeline powering [Animation and VFX studios](#who-is-using-avalon) during the production of computer generated imagery.
 
 - See [What is Avalon?](#what-is-avalon) for details.
 
@@ -44,4 +44,18 @@ It overlaps into people management by hooking into tasks supplied via production
 
 <br>
 <br>
+
+## Who is using Avalon?
+
+- [Colorbleed](https://www.colorbleed.nl/)
+- [Moonshine VFX](https://www.moonshine.tw/)
+- [Kredenc](http://kredenc.studio/)
+- [Bumpybox](http://www.bumpybox.com/)
+- [Submarine](https://www.submarine.nl/)
+- [Job, Joris en Marieke](https://www.jobjorisenmarieke.nl/)
+
+!!! hint "Missing your name?"
+
+    Missing your name? Let us know on [Avalon Gitter](https://gitter.im/getavalon/Lobby) or set up a PR to [`getavalon/docs`](https://github.com/getavalon/docs).
+
 <br>
