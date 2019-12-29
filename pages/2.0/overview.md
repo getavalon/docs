@@ -53,6 +53,9 @@ It overlaps into people management by hooking into tasks supplied via production
 - [Bumpybox](http://www.bumpybox.com/)
 - [Submarine](https://www.submarine.nl/)
 - [Job, Joris en Marieke](https://www.jobjorisenmarieke.nl/)
+- [3DE](https://www.3de.com.pl)
+- [Imagine Studio](https://imaginestudio.cz/)
+- [ClothCat Animation](https://www.clothcatanimation.com/)
 
 !!! hint "Missing your name?"
 
