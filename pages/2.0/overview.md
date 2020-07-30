@@ -56,6 +56,9 @@ It overlaps into people management by hooking into tasks supplied via production
 - [3DE](https://www.3de.com.pl)
 - [Imagine Studio](https://imaginestudio.cz/)
 - [ClothCat Animation](https://www.clothcatanimation.com/)
+- [The Scope](https://www.thescope.studio/)
+- [Fourth Wall Animation](https://fourthwallanimation.com/)
+- [Incognito](https://incognito.studio/)
 
 !!! hint "Missing your name?"
 
