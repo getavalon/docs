@@ -69,7 +69,7 @@ Now visit http://localhost:8000 to view the resulting documentation. Any changes
 The theme is built with mkdocs and based on [squidfunk/mkdocs-material](https://github.com/squidfunk/mkdocs-material), with some changes and additions.
 
 - [Versioning](#versioning)
-- [Placeholder Expansion](#template-expansion)
+- [Placeholder Expansion](#placeholder-expansion)
 - [Living Documentation](#living-documentation)
 - [Tabbed Code Snippets](#tabbed-code-snippets)
 
