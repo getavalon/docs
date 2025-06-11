@@ -1,7 +1,5 @@
 ### Avalon Documentation
 
-[![Build Status](https://travis-ci.org/getavalon/docs.svg?branch=master)](https://travis-ci.org/getavalon/docs)
-
 Project documentation for [avalon](https://github.com/getavalon/core), automatically tested and deployed to [getavalon.github.io](https://getavalon.github.io).
 
 <br>
